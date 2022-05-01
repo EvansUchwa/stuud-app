@@ -1,0 +1,50 @@
+.course{
+    padding: 100px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--colorBgw);
+    min-height: 100vh;
+    /* background-color: blue; */
+}
+.course h1{
+    max-width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+.courses-add{
+/* background-color: white; */
+width: 60%;
+margin: 25px auto;
+border-radius: 20px;
+/* padding: 25px 0; */
+}
+.courses-add form{
+    width: 60%;
+    margin: auto;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+.courses-add form input,.courses-add form textarea{
+    background-color: var(--cwd2);
+    border-radius: 10px;
+}
+.courses-list{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 512px) {
+    .courses-add{
+        width: 95%;
+        }
+        .courses-add form{
+            width: 90%;
+        }
+}
+
+@media screen and (min-width: 512px) and (max-width: 768px){
+
+}
