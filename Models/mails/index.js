@@ -1,13 +1,16 @@
 const nodemailer = require("nodemailer");
 
 var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    pool: true,
+    host: 'smtp.hostinger.com',
+    port: "465",
     auth: {
-        user: 'odjas229help@gmail.com',
-        pass: 'OdjaAnnonce229'
+        user: 'lequip@stuud.fr',
+        pass: 'Univearn123@'
     }
 });
 
 
 
 module.exports = transporter 
+// ssh -p 65002 u736848414@51.178.134.91

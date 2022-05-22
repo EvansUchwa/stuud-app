@@ -1,0 +1,81 @@
+import { useEffect, useState } from "react";
+import { Navigate, Outlet, Route, useLocation, useNavigate } from "react-router";
+import { Link } from "react-router-dom";
+import { SimpleImage } from "./GlobalComponents/Img";
+import { ConnectedAsideNav, ConnectedNavbar, NotConnectedNavbar } from "./GlobalComponents/Navigation/Navbar"
+import { AppLayout } from "./GlobalComponents/Other";
+import { asideMenuLinks } from "./Rawdata/links";
+import { DashSearchUserOrCourse, DashTitleAndSortBy } from "./RoutesComponents/dashboard/dashElementUI";
+import { Finaliser_profil } from "./RoutesComponents/profil/finaliser";
+
+// const userIsAuthed = { isAuthed: false, profil_completed: false }
+
+
+export const NavMiddleware = ({ props }) => {
+    const { currentRoute, auth } = props;
+    const location = useLocation()
+    return <header>
+        {
+            (() => {
+                if (auth.isAuthed) {
+                    if (auth.generalInfos && auth.generalInfos.profil_completed) {
+                        return null;
+                    }
+                    // return <ConnectedAsideNav props={{ locationPath: location.pathname }} />
+                } else {
+                    if (['/Authentification/Inscription', '/Authentification/Connexion'].includes(currentRoute)) {
+                        return <></>
+                    } else {
+                        return <NotConnectedNavbar />
+                    }
+                }
+            })()
+        }
+    </header>
+}
+
+export const ShowIfConnectedMiddleware = ({ auth }) => {
+    const [toShow, setToShow] = useState(null)
+    const location = useLocation()
+    useEffect(() => {
+
+        if (!auth.isAuthed) {
+            window.location = '/Authentification/Connexion'
+        }
+        else {
+            if (auth.generalInfos) {
+                if (auth.generalInfos && auth.generalInfos.profil_completed === 0) {
+                    if (location.pathname !== "/Profil/finalisation") {
+                        window.location = "/Profil/finalisation"
+                    } else {
+                        toShow !== <AppLayout /> && setToShow(<AppLayout />)
+                    }
+                }
+
+            } else {
+                setToShow('.......................CHARGEMENT.........................')
+            }
+
+        }
+    }, [auth])
+
+    return <>{toShow}</>
+}
+
+export const NotShowIfConnectedMiddleware = ({ auth }) => {
+    const [toShow, setToShow] = useState(null);
+    const location = useLocation();
+    useEffect(() => {
+
+        if (auth.isAuthed) {
+            if (location.pathname !== "/Course/list") {
+                window.location = "/Course/list"
+            }
+        }
+        else {
+            setToShow(<Outlet />)
+        }
+    }, [auth])
+    return <>{toShow}</>
+}
+

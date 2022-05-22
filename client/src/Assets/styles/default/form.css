@@ -159,7 +159,10 @@ input[type="number"] {
 }
 
 /* Field text search */
-.fs-suggestionList {
+.formSegmentSearch{
+  position: relative;
+}
+.fss-suggestions{
   z-index: 999999999;
   position: absolute;
   top: 105%;
@@ -174,11 +177,11 @@ input[type="number"] {
 .fs-suggestionList-visible {
   /* display: flex; */
 }
-.fs-suggestionList span {
+.fss-suggestions span {
   padding: 10px 15px;
   cursor: pointer;
 }
-.fs-suggestionList span:hover {
+.fss-suggestions span:hover {
   background-color: var(--color1);
   color: white;
 }
@@ -195,7 +198,6 @@ input[type="number"] {
   font-weight: bolder;
 }
 .formSegmentFile section{
-  /* background-color: aqua; */
   margin: 10px auto auto auto;
   display: flex;
   flex-wrap: wrap;
@@ -204,9 +206,6 @@ input[type="number"] {
 .fsf-filesListAndAddBtn label,.fsf-filesListAndAddBtn > p{
   text-align: center;
   background-color: var(--cwd2);
-  /* width: 100px;
-  height: 100px;
-  line-height: 100px; */
   border-radius: 10px;
 }
 .fsf-filesListAndAddBtn label span{
@@ -241,7 +240,6 @@ input[type="number"] {
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  /* line-height: 30px; */
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   color: var(--color2);
@@ -279,7 +277,6 @@ input[type="number"] {
   font-weight: bolder;
 }
 .fst-form{
-  /* background-color: aqua; */
   width: 100%;
   margin: 0 auto 10px auto;
 }
@@ -293,7 +290,6 @@ gap: 10px;
 }
 
 .fst-list{
-  /* background-color: aqua; */
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -330,5 +326,5 @@ gap: 10px;
   color: var(--color1);
 }
 
-@media screen and (max-width: 512px) {
+@media screen and (max-width: 758px) {
 }

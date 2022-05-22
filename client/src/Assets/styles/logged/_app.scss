@@ -1,0 +1,241 @@
+button{
+    color: white;
+    background-color: var(--color1);
+}
+.loggedMain{
+    width: 100%;
+    @include flexWithWrap();
+    height: 100vh;
+    background-color: var(--c1WN1);
+    .lm-nav{
+        width: 15%;
+        @include flexDirectionAndJustify("column",space-between,"true");
+        background-color: var(--color1);
+        // border-right: solid 2px var(--cwd2);
+        padding: 0 0 50px 0;
+        i{
+            font-size: 4vh;
+        }
+        .lmn-logo{
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 10vh;
+            background-color: var(--color1)
+        }
+        .lmn-logo img{
+            height: 5vh
+        }
+        .lmn-menu{
+            @include flexDirectionAndJustify("column");
+            width: 90%;
+            margin-left: auto;
+            gap: 30px;
+        }
+        .lmn-menu a{
+            width: 100%;
+            padding: 5px 0;
+            @include flexDirectionAndJustify("row",false,center);
+            padding-left: 10%;
+            gap: 10px;
+            transition: all 0.5s ease;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            i,span{
+                color: white;
+            }
+            // background-color: var(--cwd1);
+        }
+        .asideNavSelect{
+            color: white;
+            position: relative;
+            i,span{
+                color: var(--color1) !important;
+            }
+            background-color: var(--c1WN1);
+        }
+
+
+        .lmn-account{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .lmn-account img{
+            cursor: pointer;
+            @include circleRadius(40px);
+        }
+    }
+    .lm-content{
+        width: 85%;
+        height: 100%;
+        overflow: auto;
+    }
+}
+
+
+.dash-titleAndSortBy,.dash-search_add_notice{
+    
+}
+.dash-titleAndSortBy{
+    margin: 25px auto;
+    width: 90%;
+    // background-color: aqua;
+    @include flexDirectionAndJustify("row",space-between,"true");
+
+    section{
+        &:first-child{
+            max-width: 65%;
+
+        }
+        &:last-child{
+            @include flexDirectionAndJustify("row",space-between,"true");
+             //background-color: green;
+             >i{
+                margin-right: 5px;
+                font-size: 25px;
+                color: var(--color1)
+             }
+        }
+        &:last-child p{
+            @include flexDirectionAndJustify("column");
+        }
+        select{
+            padding: 5px 10px;
+        }
+
+    }
+
+    select{
+        background-color: white;
+    }
+}
+.dash-search_add_notice{
+    @include flexDirectionAndJustify("row",space-between,"true");
+    width: 100%;
+    height: 10vh;
+    padding: 50px 0 !important;
+    input{
+        // background-color: #d3e4e9;
+    }
+    .dsad-add_notices{
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        i{
+            font-size: 3vh;
+        }
+        .addContentBtn{
+            background-color: var(--color1);
+            color: white;
+            @include circleRadius(30px);
+            
+        }
+    }
+}
+.formSegmentSearchWithIcon{
+    @include flexDirectionAndJustify("row",initial,"true");
+    background-color: white;
+    border-radius: 10px;
+    width: 250px;
+    margin-left: 2%;
+    input{
+        border: none;
+        width: calc(100% - 50px);
+    }
+    input:focus{
+        border: none;
+    }
+    i{
+        width: 50px;
+        display: inline-block;
+        text-align: center;
+        font-size: 3vh;
+        // background-color: palevioletred;
+    }
+}
+
+
+@media screen and (max-width: 1024px){
+    .loggedMain{
+        width: 100%;
+        .lm-nav{
+             box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+            position: fixed;
+            bottom: 0;
+            z-index: 2;
+            padding: 0 10px;
+            width: 90%;
+            left: 50%;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+
+            transform: translateX(-50%);
+            height: 10vh;
+            @include flexDirectionAndJustify("row",space-between,"true");
+            .lmn-logo{
+                // background-color: aqua
+                display: none;
+            }
+            .lmn-menu{
+                @include flexDirectionAndJustify("row");
+                gap: 5px;
+                width: initial;
+                margin-left: 10px;
+            }
+            .lmn-menu a{
+               flex-direction: column;
+               padding: initial;
+               padding: 0;
+               width: 40px;
+               height: 40px;
+               line-height: 40px;
+               span{
+                // font-size: 14px;
+                display: none;
+                }
+            }
+            .asideNavSelect{
+                border-radius: 10px;
+            }
+            .asideNavSelect::after,.asideNavSelect::before{
+                display: none;
+            }
+           
+            .lmn-account{
+            flex-direction: row-reverse;
+            gap: 10px;
+            // background-color: var(--color1);
+  
+            }
+        }
+        .lm-content{
+            width: 100%;
+            height: 90vh;
+        }
+    }
+
+    .dash-titleAndSortBy{
+        width: 95%;
+        section{
+            &:first-child{
+                font-size: 14px;
+            }
+            &:last-child{
+               // @include flexDirectionAndJustify("column",space-between,"true");
+                text-align: center;
+            }
+            &:last-child span{
+                margin-right: initial;
+            }
+        }
+    
+        select{
+            background-color: white;
+        }
+    }
+}

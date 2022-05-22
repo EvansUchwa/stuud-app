@@ -1,0 +1,224 @@
+.profil {
+    width: 100%;
+    // min-height: 100vh;
+    // display: flex;
+    // align-items: center;
+    // justify-content: center;
+  }
+  
+  
+  
+  
+  
+  
+  /* View profil */
+  .profil-view{
+  width: 100%;
+  margin: 0 auto;
+  }
+  .pv-header{
+    //  background-color: var(--color2); 
+    // background-image: url("../../../images/bgs/profil.png");
+    // background-repeat: repeat-x;
+    // background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .pvh-bg{
+    height: 30vh;
+    display: flex;
+    width: 100%;
+    position: relative;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+    
+  }
+  .pvh-bg::after{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    // background-color: var(--ob4);
+  }
+  .pv-header::after{
+    // width: 100%;
+  }
+  .pv-header article{
+    
+  }
+  .pvh-globalInfos{
+    z-index: 1;
+    margin-top: -15vh;
+    text-align: center;
+    gap: 20px;
+    img{
+      @include circleRadius(30vh);
+      border: solid 10px white;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 50px;
+    }
+    > div{
+      b{
+        font-size: 30px;
+      }
+      display: flex;
+    flex-direction: column;
+    gap: 10px;
+    p {
+      font-size: 25px;
+    }
+    }
+  }
+.pvh-stats{
+  margin: 25px auto;
+display: flex;
+gap: 30px;
+p{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  b{
+    font-size: 30px;
+  }
+}
+}
+.pvh-actions{
+display: flex;
+gap: 20px;
+justify-content: center;
+button{
+  padding: 15px 45px;
+}
+button:last-child{
+background-color: transparent;
+color: var(--color1);
+border: solid 2px var(--color1);
+}
+}
+  
+  .pv-h-buttons_links{
+  margin-left: auto;
+  }
+  .pv-h-buttons_links a,.pv-h-buttons_links span{
+    padding: 5px 10px;
+    color: var(--color3);
+    font-size: 20px;
+    cursor: pointer;
+  }
+  .pv-h-buttons_links i{
+    margin-right: 5px;
+  }
+  .pv-information_settings{
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  }
+  .pv-i,.pv-p{
+    padding: 20px 30px;
+  background-color: white;
+  max-width: 45%;
+  border-radius: 20px;
+  box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  }
+  .pv-i h3,.pv-p h3{
+    margin-bottom: 25px;
+    color: var(--color1);
+  
+  }
+  .pv-i > p:first-of-type{
+    margin-bottom: 10px;
+  }
+  .pv-i > p{
+    margin-bottom: 5px;
+  }
+  .pv-i b{
+    margin-right: 10px;
+    /* color: var(--color1); */
+  }
+  
+  
+  .pv-p{
+    /* max-width: 45%; */
+  }
+  .pv-p input{
+    display: none;
+  }
+  .inputSwitch{
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+    height: 25px;
+    width: 50px;
+    border-radius: 50px;
+    margin-right: 10px;
+    overflow: hidden;
+  }
+  .inputSwitch input:checked + span{
+  background-color: var(--color1);
+  }
+  .inputSwitch input:checked + span::after{
+    left: 27px;
+    background-color: white;
+    }
+  .inputSwitch span{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: all .5s;
+    background-color: var(--cwd4);
+  }
+  .inputSwitch span::after{
+    content: "";
+    transition: all .5s;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3px;
+    background-color: var(--ob4);
+  }
+  .pv-p div{
+    /* background-color: blue; */
+    margin-bottom: 35px;
+  }
+  .pv-p div p{
+    margin: 10px 0;
+    display: flex;
+    /* flex-wrap: wrap; */
+    align-items: center;
+  }
+  .pv-p div p > span{
+    max-width: 70%;
+  }
+  
+  /*  */
+  
+  @media screen and (max-width: 512px) {
+    .profil-finalisation {
+      width: 90%;
+    }
+  
+  
+    /* View profile */
+    .pv-i,.pv-p{
+    max-width: 90%;
+    margin: 20px 0;
+    }
+  
+    .pv-p div p{
+      /* background-color: aqua; */
+    }
+    .pv-p div p > span{
+      font-size: 15px;
+    }
+    .inputSwitch{
+      /* width: 100px; */
+    }
+    /*  */
+  }
+  

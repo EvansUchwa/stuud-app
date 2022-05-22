@@ -1,7 +1,7 @@
 const transporter = require("./index");
 
 function mailSender(to, subject, html, setter = null) {
-    let from = 'odjas229help@gmail.com';
+    let from = "lequip@stuud.fr";
     if (setter != null) {
         from = setter
     }

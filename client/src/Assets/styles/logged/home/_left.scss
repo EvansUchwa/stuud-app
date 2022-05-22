@@ -1,0 +1,268 @@
+.dashLeft{
+    width: 65%;
+    margin-left: 2%;
+     > div{
+        border-radius: 10px;
+     }
+    }
+    // Hello Box
+    .dl-hello{
+        background-color: white;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+        padding: 20px 0;
+    }
+    .dlh-texts{
+    width: 60%;
+    margin: auto;
+    }
+    .dlh-points{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 30%;
+        height: 25vh;
+        background-color: var(--color1);
+        border-radius: 10px;
+        margin: auto;
+    }
+    .dlh-points img{
+        height: 60%;
+        object-fit: contain;
+    }
+    .dl-hello a{
+        margin-top: 20px;
+    }
+    // 
+    
+    // Stats
+    .dl-stats{
+        margin: 50px 0;
+    }
+    .dl-stats h2{
+        margin-bottom: 25px;
+    }
+    .dl-stats section{
+        width: 100%;
+        // background-color: aqua;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: space-between;
+    }
+    .dl-stats section div{
+        width: 45%;
+        background-color: var(--color1);
+        padding: 20px 10px;
+        border-radius: 10px;
+        color: white;
+    }
+    .dl-stats section div h4{
+        font-size: 30px;
+    }
+    .dl-stats section div h4,.dl-stats section div b{
+        color: white;
+    }
+    // 
+
+
+    // Dernière publication 
+    .dl-lastPublications{
+        margin: 50px auto;
+    }
+    .dllp-title{
+        margin-bottom: 25px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        h2{
+            width: initial;
+            margin: initial;
+        }
+        a{
+            width: 10vh;
+            height: 7vh;
+            line-height: 7vh;
+            text-align: center;
+            border-radius: 10px;
+            i{
+                color: white;
+                font-size: 30px;
+            }
+        }
+        
+    }
+    .dllp-publications{
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+        width: 100%;
+    }
+    .courseCard2{
+        width: 100%;
+        background-color: white;
+        border-radius: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 25px;
+    }
+
+    .courseCard2 span{
+        // background-color: var(--color1);
+        width: 7vh;
+        height: 7vh;
+        line-height: 7vh;
+        font-size: 5vh;
+        border-radius: 10px;
+        text-align: center;
+        i{
+            color: white;
+        }
+        
+    }
+    .courseCard2 b{
+        
+    }
+    .published{
+        color: var(--color1) !important;
+    }
+    .onStage{
+        color: red;
+    }
+    .onValidation{
+        color: var(--color2);
+    }
+    .publishedStyle{
+        span,button,a{
+            background-color: var(--publishedCourseBg);
+        }
+    }
+    .askedStyle{
+        span,button,a{
+            background-color: var(--askedCourseBg);
+        } 
+    }
+    // 
+
+
+
+
+    
+    // Contributors
+    .dl-contributors{
+        margin: 25px 0;
+        padding: 25px 0;
+    }
+    .dlc-bests{
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    .dlc-best{
+        border-radius: 10px;
+        width: 30%;
+        background-color: white;
+        @include flexDirectionAndJustify("column",center,center);
+        padding: 25px 0;
+    }
+    .dlc-best img{
+        @include circleRadius(10vh)
+    }
+    .dlc-best > span{
+        margin: 10px 0;
+    }
+    .dlc-best > button{
+        margin: 10px 0 0 0;
+    }
+    
+    .dlc-user{
+        border-radius: 10px;
+        width: 100%;
+        margin: 25px auto 0 auto;
+        background-color: white;
+        padding: 20px 30px;
+        @include flexDirectionAndJustify("row",false,center);
+        flex-wrap: wrap;
+    }
+    .dlc-user img{
+        @include circleRadius(8vh)
+    }
+    .dlc-user  p{
+        margin-left: 10px;
+    }
+    .dlc-user  b{
+        font-size: 30px;
+    }
+    .dlc-user .contributor-reactionsStats{
+        // margin-left: auto
+    }
+    .contributor-reactionsStats{
+        @include flexDirectionAndJustify("row",center,center);
+        gap: 15px;
+    }
+    .contributor-reactionsStats i{
+    margin-right: 5px;
+    font-size: 20px;
+    }
+    
+    .contributor-coursesCount{
+        background-color: var(--cwd1);
+        padding: 5px 15px;
+        border-radius: 10px;
+        color: var(--color1);
+        margin: auto;
+        text-align: center;
+    }
+    
+
+
+    @media screen and (max-width: 1024px){
+        .dashLeft{
+            width: 95%;
+            margin: auto;
+        }
+        .dlc-bests{
+            justify-content: center;
+        }
+        .dlc-user{
+            justify-content: center;
+            img{
+                @include circleRadius(8vh)
+            }
+            .contributor-coursesCount{
+                display: flex;
+                margin: 20px auto 10px auto;
+            }
+        }
+       
+     
+    
+        .dlc-best{
+            width: 90%;
+        }
+
+
+        .courseCard2 {
+            // flex-direction: column;
+            // gap: 10px;
+            p:nth-child(3){
+                width: 50%;
+                text-align: right;
+            }
+            b{
+                width: 50%;
+                text-align: center;
+            }
+            button{
+                text-align: center;
+                // margin: auto;
+            }
+        }
+    
+
+    }

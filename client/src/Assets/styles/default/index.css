@@ -60,6 +60,19 @@ p {
 img {
   object-fit: cover;
 }
+.imgWithBadge{
+  position: relative;
+}
+.imgWithBadge span{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 80%;
+}
 button {
   cursor: pointer;
 }

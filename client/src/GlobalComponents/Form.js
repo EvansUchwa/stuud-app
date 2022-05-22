@@ -52,19 +52,25 @@ export function InputText({ props }) {
     </div>
 }
 
-export function InputRadioOrCheck({ props }) {
-    const { name, type, choice, label,
+export function InputRadio({ props }) {
+    const { name, choices, label,
         fieldValue, setFieldValue,
         formValues, setFormValues } = props
     return <div className={"formSegment  "}>
         <label> {label} </label>
         <section className="fs-radio_checkbox-row">
             {
-                choice.map((item, i) => <label key={"inpur radio or check item nb" + i}>
+                choices.map((item, i) => <label key={"inpur radio or check item nb" + i}>
 
-                    <input type={type}
+                    <input type="radio"
                         name={name}
-                        value={item.value} />
+                        value={item.value}
+                        onChange={(event) => {
+                            formValues ?
+                                handleFormValuesChange(event, formValues, setFormValues)
+                                : handleFieldChange(event, setFieldValue)
+
+                        }} />
                     <span>{item.label}</span>
                 </label>)
             }
@@ -145,6 +151,49 @@ export function Select({ props }) {
             }
         </select>
     </section>
+}
+
+export function SearchAndSelect({ props }) {
+    const { name, ph, label,
+        fieldValue, setFieldValue,
+        formValues, setFormValues,
+        dataList, dataSearchKey } = props
+    const [suggestions, setSuggestions] = useState([]);
+    function handleSearch(value) {
+        value = value.toLowerCase();
+        const filtered = dataList.filter(item => item[dataSearchKey].toLowerCase().
+            includes(value))
+        setSuggestions(filtered)
+    }
+    return <div className="formSegment formSegmentSearch">
+        <label >{label}</label>
+        <section>
+            <input type="text" name={name}
+                value={formValues ? formValues[name] : fieldValue}
+                placeholder={ph}
+                onChange={(event) => {
+                    handleSearch(event.target.value);
+                    formValues ?
+                        handleFormValuesChange(event, formValues, setFormValues)
+                        : handleFieldChange(event, setFieldValue)
+
+                }} />
+            <article className="fss-suggestions">
+                {
+                    formValues[name] !== "" &&
+                    suggestions.map((sug, i) => <span key={"form sugges " + i}
+                        onClick={() => {
+                            formValues ?
+                                setFormValues({ ...formValues, [name]: sug[dataSearchKey] })
+                                : setFieldValue(sug[dataSearchKey])
+                            setSuggestions([])
+                        }}>
+                        {sug[dataSearchKey]}
+                    </span>)
+                }
+            </article>
+        </section>
+    </div>
 }
 
 export function TextArea({ props }) {

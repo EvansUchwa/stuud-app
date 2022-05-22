@@ -9,6 +9,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 99999;
 }
 .modal > section {
   background-color: white;
@@ -33,6 +34,34 @@
 .mb-foot-closer {
 }
 
+
+/* COnfirmation */
+
+.confirmationModal{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.confirmationModal section{
+  display: flex;
+  gap: 20px;
+  margin: 25px auto;
+}
+.confirmationModal section span{
+  padding: 10px 15px;
+  cursor: pointer;
+}
+.confirmationModal section span:nth-child(1){
+  background-color: var(--color1);
+  color: white;
+}
+.confirmationModal section span:nth-child(2){
+  background-color: var(--cwd4);
+  color: grey;
+}
+
+/*  */
 @keyframes modalFade {
   from {
     transform: translateY(-100%);

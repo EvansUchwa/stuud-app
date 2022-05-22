@@ -1,7 +1,5 @@
-import { Link } from "react-router-dom";
 import "../Assets/styles/accueil.css"
 import { InscriptionionBtn } from "../GlobalComponents/Button";
-import { IllustrationImage, SimpleImage } from "../GlobalComponents/Img";
 const Accueil = () => {
     return <div className="accueil">
         <div className="accueil-banner">

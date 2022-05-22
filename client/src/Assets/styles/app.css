@@ -1,45 +1,62 @@
 :root {
   --color1: #247B91;
+  --c1WN1: #eef4f6;
+  --c1WN2: #d3e4e9;
   --color2: #D3B3A3;
   --c2d1: #E6DBD4;
   /* d82466 */
   --color3: #455a64;
   --color4: #263238;
   --colorBgw: #f1f1f1;
+  --or: #b49c16;
+  --argent: #807e7f;
+  --bronze : #b05f20;
+  --publishedCourseBg:#247B91;
+  --askedCourseBg: #020202;
 }
 @font-face {
-  font-family: "Poppins-Medium";
-  src: url("../fonts/Poppins-Medium.ttf");
+  font-family: "Roboto-Medium";
+  src: url("../fonts/Roboto-Medium.ttf");
 }
 @font-face {
-  font-family: "Poppins-Light";
-  src: url("../fonts/Poppins-Light.ttf");
+  font-family: "Roboto-Regular";
+  src: url("../fonts/Roboto-Regular.ttf");
 }
-@font-face {
-  font-family: "Poppins-SemiBold";
-  src: url("../fonts/Poppins-SemiBold.ttf");
+.or{
+  background-color: #b49c16;
+}
+.argent{
+  background-color: #807e7f;
+}
+.bronze{
+background-color: #b05f20;
 }
 body {
-  font-family: "Poppins-Light";
+  font-family: "Roboto-Regular";
 }
 b,h1,h2,h3,h4{
-  font-family: "Poppins-Medium";
+  font-family: "Roboto-Medium";
 }
 p,span,i,label,b,h1,h2,h3,h4,h5{
   color: var(--color4);
 }
 button {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 input,
 select {
-  border-radius: 10px;
+  border-radius: 5px;
 }
 *{
   box-sizing: border-box !important;
 }
 i,label{
   cursor: pointer;
+}
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 /* Nav */
 .nav,
@@ -188,6 +205,20 @@ color: var(--color1);
 
 
 
+
+
+/* Other UI */
+.websiteLogoLoader{
+  background-color: #247B91;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.websiteLogoLoader{
+  
+}
+
 .breadCumbs{
   max-width: 90%;
   margin: auto;
@@ -210,5 +241,10 @@ color: var(--color1);
 }
 
 @media screen and (min-width: 512px) and (max-width: 768px){
-
+  .nav-pcLinks{
+    display: none;
+  }
+  .nav-auth {
+    margin-left: auto;
+  }
 }

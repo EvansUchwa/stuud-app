@@ -15,6 +15,8 @@ app.use('/user', require('./Controllers/routes/User'))
 app.use('/auth', require('./Controllers/routes/Auth'))
 app.use('/university', require('./Controllers/routes/University'))
 app.use('/faculty', require('./Controllers/routes/Faculty'))
+app.use('/test', require('./Controllers/routes/myTest.js'))
+
 // app.use('/course', require('./Controllers/routes/course'))
 
 

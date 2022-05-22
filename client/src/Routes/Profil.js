@@ -1,8 +1,8 @@
-import "../Assets/styles/profil.css";
+// import "../Assets/styles/profil.css";
 
 import { useParams } from "react-router"
-import { Finaliser_profil } from "../RoutesSubComponents/profil/finaliser"
-import ViewProfil from "../RoutesSubComponents/profil/viewProfil";
+import { Finaliser_profil } from "../RoutesComponents/profil/finaliser"
+import ViewProfil from "../RoutesComponents/profil/viewProfil";
 
 export const Profil = () => {
     const { profilAction } = useParams();

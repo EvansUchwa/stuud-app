@@ -1,25 +1,23 @@
-import { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
 import { Navigate, Outlet, Route, useLocation, useNavigate } from "react-router";
-import { ConnectedNavbar, NotConnectedNavbar } from "./GlobalComponents/Navigation/Navbar"
-import { Finaliser_profil } from "./RoutesSubComponents/profil/finaliser";
-import { authSelector } from './Store/selectors/authSelectors';
+import { NotConnectedNavbar } from "./GlobalComponents/Navigation/Navbar"
+import { AppLayout } from "./GlobalComponents/Other";
+import { LogoLoader } from "./GlobalComponents/loader";
 
 // const userIsAuthed = { isAuthed: false, profil_completed: false }
 
 
 export const NavMiddleware = ({ props }) => {
-    const { currentRoute, userIsAuthed } = props;
-
+    const { currentRoute, auth } = props;
+    const location = useLocation()
     return <header>
         {
             (() => {
-                if (userIsAuthed.isAuthed) {
-                    if (userIsAuthed.generalInfos && userIsAuthed.generalInfos.profil_completed) {
-                        return <ConnectedNavbar />
-                    } else {
-                        return <></>
+                if (auth.isAuthed) {
+                    if (auth.generalInfos && auth.generalInfos.profil_completed) {
+                        return null;
                     }
+                    // return <ConnectedAsideNav props={{ locationPath: location.pathname }} />
                 } else {
                     if (['/Authentification/Inscription', '/Authentification/Connexion'].includes(currentRoute)) {
                         return <></>
@@ -32,33 +30,56 @@ export const NavMiddleware = ({ props }) => {
     </header>
 }
 
-export const ShowIfConnectedMiddleware = ({ userIsAuthed }) => {
-    const location = useLocation()
+export const AuthProtectedRoute = ({ auth }) => {
+    const [toShow, setToShow] = useState(null)
+    const location = useLocation();
+    useEffect(() => {
 
-    if (!userIsAuthed.isAuthed) {
-        return <Navigate to={"/Authentification/Connexion"} state={{ from: location }} replace />
-    }
-    else if (userIsAuthed.generalInfos && !userIsAuthed.generalInfos.profil_completed) {
-        return <div className="profil">
-            <Finaliser_profil />
-        </div>
-    }
-
-    return <>
-        {
-            <Outlet />
+        if (!auth.isAuthed) {
+            window.location = '/Authentification/Connexion'
         }
-    </>
+        else {
+            if (auth.generalInfos) {
+                if (auth.generalInfos && auth.generalInfos.profil_completed === 0) {
+                    if (location.pathname !== "/Profil/finalisation") {
+                        window.location = "/Profil/finalisation"
+                    } else {
+                        setToShow(<AppLayout />)
+                    }
+                } else {
+                    if (location.pathname === "/Profil/finalisation") {
+                        window.location = "/Dashboard"
+                    } else {
+                        setToShow(<AppLayout />)
+                    }
+
+                }
+
+            } else {
+                setToShow(<LogoLoader />)
+            }
+
+        }
+    }, [auth])
+
+    return <>{toShow} </>
 }
 
-export const NotShowIfConnectedMiddleware = ({ userIsAuthed }) => {
-    const location = useLocation()
 
-    if (userIsAuthed.isAuthed) {
-        return <Navigate to={"/Dashboard"} state={{ from: location }} replace />
-    }
-    return <>
-        <Outlet />
-    </>
+export const AuthSimpleRoute = ({ auth }) => {
+    const [toShow, setToShow] = useState(null);
+    const location = useLocation();
+    useEffect(() => {
+
+        if (auth.isAuthed) {
+            if (location.pathname !== "/Dashboard") {
+                window.location = "/Dashboard"
+            }
+        }
+        else {
+            setToShow(<Outlet />)
+        }
+    }, [auth])
+    return toShow
 }
 

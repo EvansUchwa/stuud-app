@@ -4,6 +4,9 @@ import { setIsDisconnected } from "../../Store/actions/authActions"
 import { removeAuthHeaderToken } from "../../Store/actions/axiosActions"
 import { ConnexionBtn } from "../Button"
 import { SimpleImage } from "../Img"
+import { asideMenuLinks } from "../../Rawdata/links"
+import { setModalContentOnStore, setModalOnStore } from "../../Store/actions/modalActions"
+import { ConfirmationMessage } from "../Modal"
 
 export const NotConnectedNavbar = () => {
     const navLinks = [
@@ -88,4 +91,43 @@ export const ConnectedNavbar = () => {
             </div>
         </aside>
     </nav>
+}
+
+export const ConnectedAsideNav = ({ props }) => {
+    const { locationPath } = props;
+    const dispatch = useDispatch();
+
+    function disconnect() {
+        dispatch(setModalOnStore(false))
+        dispatch(setIsDisconnected())
+    }
+    function confirmLogout() {
+        dispatch(setModalContentOnStore(<ConfirmationMessage props={{
+            text: "Voulez vous vraiment vous deconnectez",
+            functionAfterConfirm: disconnect
+        }} />))
+        dispatch(setModalOnStore(true))
+
+    }
+    return <aside className="lm-nav">
+        <section className="lmn-logo">
+            <SimpleImage props={{ src: "logos/designW.png" }} />
+        </section>
+        <section className="lmn-menu">
+            {
+                asideMenuLinks.map((mn, index) => <Link to={mn.to} key={"cn lk nb" + index}
+                    className={locationPath === mn.to ? "asideNavSelect" : ""}>
+                    <i className={"mdi " + mn.icon}></i>
+                    <span>{mn.label} </span>
+                </Link>)
+            }
+        </section>
+        <section className="lmn-account">
+            <i className="mdi mdi-logout" onClick={() => confirmLogout()}></i>
+            <Link to={"/Profil/view"}>
+                <SimpleImage props={{ src: "profils/myUser.jpg" }} />
+            </Link>
+        </section>
+
+    </aside>
 }

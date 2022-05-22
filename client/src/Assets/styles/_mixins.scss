@@ -1,0 +1,32 @@
+@mixin flexWithWrap($center: null) {
+    display: flex;
+    flex-wrap: wrap;
+
+    @if $center{
+        align-items: center;
+        justify-content: center;
+    }
+}
+@mixin circleRadius($size) {
+    width: $size;
+    height: $size;
+    text-align: center;
+    line-height: $size;
+    border-radius: 100%;
+}
+@mixin flexDirectionAndJustify($align,$justify: false,$alignCenter: false) {
+    display: flex;
+    @if $align == "row"{
+        flex-direction: row;
+    }@else{
+        flex-direction: column;
+    }
+
+    @if $justify{
+        justify-content: $justify;
+    }
+
+    @if $alignCenter{
+        align-items: center;
+    }
+}

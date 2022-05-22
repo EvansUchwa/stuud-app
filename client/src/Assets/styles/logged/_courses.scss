@@ -1,0 +1,31 @@
+.courses{
+}
+.courses h1{
+    text-align: center;
+}
+.courses-list{
+    // background-color: aqua;
+    display: flex;
+    flex-direction: column;
+}
+.cl-courses{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.courses-actions{
+    padding: 50px 0;
+}
+// Add course page
+.courses-add{
+    width: 90%;
+    margin: auto;
+
+}
+.courses-add section form{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+// 

@@ -1,4 +1,7 @@
-// import { SimpleImage } from "./Img"
+import { SimpleImage } from "./Img"
+import Pulse from 'react-reveal/Pulse';
+
+
 export const FixedLoader = () => {
     return <div className="fixedLoader">
         <i className="mdi mdi-spin mdi-loading"></i>
@@ -18,11 +21,13 @@ export const SimpleSectionLoader = () => {
     </div>
 }
 
-// export const LogoLoader = () => {
-//     return <section className='websiteLogoLoader'>
-//         <SimpleImage props={{ src: 'logo.png', alt: "logo img site Loader" }} />
-//     </section>
-// }
+export const LogoLoader = () => {
+    return <section className='websiteLogoLoader'>
+        <Pulse forever>
+            <SimpleImage props={{ src: 'logos/mergeW.png', alt: "logo img site Loader" }} />
+        </Pulse>
+    </section>
+}
 export const ObjectChildLoader = ({ children, dataIsLoad }) => {
     return dataIsLoad ? children : <SimpleSectionLoader />;
 }

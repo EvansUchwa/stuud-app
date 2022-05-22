@@ -2,8 +2,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import { useParams } from 'react-router-dom'
 import '../Assets/styles/mail.css'
-import { IllustrationImage, SimpleImage } from '../GlobalComponents/Img';
-import { ReadMailMsg, MakeMailValidation } from '../RoutesSubComponents/mail';
+import { ReadMailMsg, MakeMailValidation } from '../RoutesComponents/mail';
 import { axiosBaseSelector, axiosHeadersSelector } from "../Store/selectors/axiosSelector";
 
 export const MailAction = () => {
