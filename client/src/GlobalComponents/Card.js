@@ -17,12 +17,12 @@ export const StudentCard = ({ props }) => {
         </section>
         <section className="sc-foot">
             <span>
-                <i className="mdi mdi-heart"></i>
+                <i className="mdi mdi-account-plus"></i>
             </span>
             <span>
-                <i className="mdi mdi-heart"></i>
+                <i className="mdi mdi-chat"></i>
             </span><span>
-                <i className="mdi mdi-heart"></i>
+                <i className="mdi mdi-account-lock"></i>
             </span>
         </section>
     </div>

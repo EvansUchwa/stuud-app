@@ -12,7 +12,7 @@ function DashHello() {
                     Quasi natus consequatur corrupti sunt commodi odit eligendi, fuga at.
                     {/* eos accusamus suscipit nemo facilis quo cum est dicta dolore cupiditate perspiciatis. */}
                 </p>
-                <Link to="">Mon profil</Link>
+                <Link to="/Profil">Mon profil</Link>
             </article>
             <article className="dlh-points">
                 <IllustrationImage props={{ alt: "Nombre de point stuud", src: "happy.svg" }} />

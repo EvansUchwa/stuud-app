@@ -18,8 +18,7 @@
   }
   .pv-header{
     //  background-color: var(--color2); 
-    // background-image: url("../../../images/bgs/profil.png");
-    // background-repeat: repeat-x;
+    
     // background-size: cover;
     position: relative;
     display: flex;
@@ -33,6 +32,8 @@
     clip-path: polygon(0 0, 100% 0%, 100% 72%, 0% 100%);
     // margin-top: 15px;
     overflow: hidden;
+    background-image: url("../../../images/bgs/profil.png");
+    background-repeat: repeat-x;
     // border-bottom-right-radius: 20px;
     // border-bottom-left-radius: 20px;
 

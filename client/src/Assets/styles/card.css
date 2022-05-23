@@ -20,7 +20,7 @@
     width: 90%;
     margin: auto;
     height: 30%;
-    background-color: var(--cwd4);
+    background-color: var(--c1WN1);
     border-radius: 10px;
     position: relative;
 }
@@ -53,8 +53,9 @@ font-size: 12px;
 .sc-foot span{
     width: 30%;
     border-radius: 10px;
-    background-color: var(--cwd2);
+    background-color: var(--c1WN2);
     padding: 5px 0;
+    color: var(--color1);
 }
 /*  */
 
@@ -94,7 +95,7 @@ display: flex;
 flex-direction: column;
 text-align: center;
 /* background-color: var(--color1); */
-background-color: var(--cwd1);
+background-color: var(--c1WN1);
 border-radius: 10px;
 }
 .cc-head div{

@@ -1,6 +1,14 @@
 import React from 'react'
 import { SimpleImage } from '../../GlobalComponents/Img'
+import { SimpleSectionLoader } from '../../GlobalComponents/loader'
+import useProfil from '../../Hooks/useProfil'
 export default function ViewProfil() {
+
+    const { profil } = useProfil()
+
+    if (profil === null) {
+        return <SimpleSectionLoader />
+    }
     return (
         <div className='profil'>
             <div className='profil-view'>
@@ -11,10 +19,9 @@ export default function ViewProfil() {
                     <article className='pvh-globalInfos'>
                         <SimpleImage props={{ src: "profils/connected.jpg", alt: "Profil llol", className: "rounded" }} />
                         <div className=''>
-                            <b>Pseudo Nyme</b> <br />
-                            <p>Université de .........................</p>
-                            <p>Santé et Archeologie</p>
-                            <p>Troisième Année</p>
+                            <b>{profil.pseudo}</b> <br />
+                            <p>{profil.university}</p>
+                            <p>{profil.faculty.toUpperCase() + " / " + profil.study_level}</p>
                             <article className='pvh-actions'>
                                 <button>S'abonner</button>
                                 <button>Message</button>

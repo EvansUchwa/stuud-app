@@ -62,12 +62,12 @@ function App() {
       async function getUserConnceted() {
         let getUserAuthedInfos = await axios.get(apiBase + '/user/getUserConnectedAllInfos',
           { headers: { ...apiHeaders, 'Authorization': 'Bearer ' + authToken } })
-        return getUserAuthedInfos.data;
+        dispatch(setAuthedGeneralInfo(getUserAuthedInfos.data))
       }
 
       try {
-        const getUser = getUserConnceted();
-        dispatch(setAuthedGeneralInfo(getUser))
+        getUserConnceted();
+
       } catch (error) {
         if (!['/ressourceNotFound', '/pageNotFound', '/offline'].includes(location.pathname)) {
           if (error.response.data.fatal) {
