@@ -2,9 +2,18 @@ import React from 'react'
 import { SimpleImage } from '../../GlobalComponents/Img'
 function DashContributors() {
     const contributors = [
-        { "pseudo": "Evans", "courses": 150, "course-request": 22, "view": 1000, color: "var(--or)" },
-        { "pseudo": "Hicham", "courses": 100, "course-request": 12, "view": 990, color: "var(--argent)" },
-        { "pseudo": "Hugo", "courses": 50, "course-request": 82, "view": 190, color: "var(--bronze)" },
+        {
+            "pseudo": "John", "courses": 150, "course-request": 22, "view": 1000,
+            pic: "wm1.jpg", color: "var(--or)"
+        },
+        {
+            "pseudo": "Sarah", "courses": 100, "course-request": 12, "view": 990,
+            pic: "wf1.jpg", color: "var(--argent)"
+        },
+        {
+            "pseudo": "Hughe", "courses": 50, "course-request": 82, "view": 190,
+            pic: "bm1.jpg", color: "var(--bronze)"
+        },
     ]
     return (
 
@@ -16,7 +25,7 @@ function DashContributors() {
                         key={"the best contributor " + j}
                         className="dlc-best">
                         <SimpleImage props={{
-                            alt: "Friend res", src: "profils/myUser.jpg",
+                            alt: "Friend res", src: "profils/" + bc.pic,
                             withBadge: true, badgeContent: "1st",
                             badgeStyle: {
                                 backgroundColor: bc.color,
@@ -46,7 +55,7 @@ function DashContributors() {
             </section>
             <article className="dlc-user">
                 <SimpleImage props={{
-                    alt: "Friend res", src: "profils/myUser.jpg",
+                    alt: "Friend res", src: "profils/connected.jpg",
                 }} />
                 <p>
                     <b>

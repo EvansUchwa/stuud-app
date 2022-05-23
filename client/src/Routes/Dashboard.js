@@ -20,7 +20,7 @@ export const Dashboard = () => {
         <section className="dashRight">
             <div className="dr-profilInfos">
                 <SimpleImage props={{
-                    alt: "Friend res", src: "profils/myUser.jpg",
+                    alt: "Friend res", src: "profils/connected.jpg",
                 }} />
                 <b>Pseudonyme</b>
                 <ul className="drpi-publications">

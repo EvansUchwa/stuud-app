@@ -15,12 +15,12 @@
   --askedCourseBg: #020202;
 }
 @font-face {
-  font-family: "Roboto-Medium";
-  src: url("../fonts/Roboto-Medium.ttf");
+  font-family: "Graphik-Medium";
+  src: url("../fonts/Graphik-Medium.otf");
 }
 @font-face {
-  font-family: "Roboto-Regular";
-  src: url("../fonts/Roboto-Regular.ttf");
+  font-family: "Graphik-Regular";
+  src: url("../fonts/Graphik-Regular.otf");
 }
 .or{
   background-color: #b49c16;
@@ -32,10 +32,10 @@
 background-color: #b05f20;
 }
 body {
-  font-family: "Roboto-Regular";
+  font-family: "Graphik-Regular";
 }
 b,h1,h2,h3,h4{
-  font-family: "Roboto-Medium";
+  font-family: "Graphik-Medium";
 }
 p,span,i,label,b,h1,h2,h3,h4,h5{
   color: var(--color4);
@@ -122,7 +122,7 @@ ul{
   color: var(--color1);
   background-color: white;
   /* border: solid 2px var(--color1); */
-  padding: 10px 25px;
+  padding: 2vh 35px;
 }
 .nd-logout {
   /* margin-left: auto; */

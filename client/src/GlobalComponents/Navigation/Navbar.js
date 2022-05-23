@@ -111,7 +111,7 @@ export const ConnectedAsideNav = ({ props }) => {
     }
     return <aside className="lm-nav">
         <section className="lmn-logo">
-            <SimpleImage props={{ src: "logos/designW.png" }} />
+            <SimpleImage props={{ src: "logos/designB.png" }} />
         </section>
         <section className="lmn-menu">
             {
@@ -125,7 +125,7 @@ export const ConnectedAsideNav = ({ props }) => {
         <section className="lmn-account">
             <i className="mdi mdi-logout" onClick={() => confirmLogout()}></i>
             <Link to={"/Profil/view"}>
-                <SimpleImage props={{ src: "profils/myUser.jpg" }} />
+                <SimpleImage props={{ src: "profils/connected.jpg" }} />
             </Link>
         </section>
 

@@ -11,10 +11,10 @@ const mysql = require('mysql');
 // }
 
 const onlineDb = {
-    host: 'umbriel.o2switch.net',
-    user: 'ngzw4482_root_test',
-    password: "Stuud_Pwd_6",
-    database: 'ngzw4482_tester',
+    host: 'stuud.fr',
+    user: 'u736848414_stuud_root',
+    password: "Univearn1234",
+    database: 'u736848414_stuud_db',
      port:3306,
      connectionLimit : 10,
   acquireTimeout  : 10000

@@ -1,4 +1,6 @@
 @import '_mixins.scss';
+@import '_variables.scss';
+@import './notLogged/_home.scss';
 @import './logged/_app.scss';
 @import './logged/home/_index.scss';
 @import './logged/home/_left.scss';
@@ -8,13 +10,6 @@
 @import './logged/_students.scss';
 @import './logged/profil/_profil.scss';
 @import './logged/profil/_finalisation.scss';
-
-
-
-
-
-
-
 body{
     // background-color: black;
 }

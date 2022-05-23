@@ -1,5 +1,5 @@
 import Accueil from "./Routes/Accueil";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./Assets/styles/default/index.css";
 import "./Assets/styles/default/utilClass.css";
 import "./Assets/styles/default/form.css";
@@ -53,14 +53,21 @@ function App() {
   const localAuthed = localStorage.getItem('stuud-isAuth')
 
 
-  useEffect(async () => {
+
+
+  useEffect(() => {
     const ac = new AbortController()
     if (localAuthed && authToken) {
-      try {
+
+      async function getUserConnceted() {
         let getUserAuthedInfos = await axios.get(apiBase + '/user/getUserConnectedAllInfos',
           { headers: { ...apiHeaders, 'Authorization': 'Bearer ' + authToken } })
-        dispatch(setAuthedGeneralInfo(getUserAuthedInfos.data))
+        return getUserAuthedInfos.data;
+      }
 
+      try {
+        const getUser = getUserConnceted();
+        dispatch(setAuthedGeneralInfo(getUser))
       } catch (error) {
         if (!['/ressourceNotFound', '/pageNotFound', '/offline'].includes(location.pathname)) {
           if (error.response.data.fatal) {

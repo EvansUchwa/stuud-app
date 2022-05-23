@@ -10,7 +10,7 @@ button{
     .lm-nav{
         width: 15%;
         @include flexDirectionAndJustify("column",space-between,"true");
-        background-color: var(--color1);
+        // background-color: var(--color1);
         // border-right: solid 2px var(--cwd2);
         padding: 0 0 50px 0;
         i{
@@ -22,7 +22,7 @@ button{
             align-items: center;
             justify-content: center;
             height: 10vh;
-            background-color: var(--color1)
+            // background-color: var(--color1)
         }
         .lmn-logo img{
             height: 5vh
@@ -40,10 +40,9 @@ button{
             padding-left: 10%;
             gap: 10px;
             transition: all 0.5s ease;
-            border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
+            border-radius: 10px;
             i,span{
-                color: white;
+                color: var(--color1);
             }
             // background-color: var(--cwd1);
         }
@@ -51,9 +50,9 @@ button{
             color: white;
             position: relative;
             i,span{
-                color: var(--color1) !important;
+                color: white !important;
             }
-            background-color: var(--c1WN1);
+            background-color: var(--color1);
         }
 
 
@@ -141,11 +140,14 @@ button{
     @include flexDirectionAndJustify("row",initial,"true");
     background-color: white;
     border-radius: 10px;
-    width: 250px;
     margin-left: 2%;
+    width: 20%;
+    transition: all .5s ease;
+    cursor: pointer;
     input{
         border: none;
-        width: calc(100% - 50px);
+        width: 100%;
+        
     }
     input:focus{
         border: none;
@@ -157,14 +159,18 @@ button{
         font-size: 3vh;
         // background-color: palevioletred;
     }
+    &:hover{
+        width: 70%;
+    }
 }
+
 
 
 @media screen and (max-width: 1024px){
     .loggedMain{
         width: 100%;
         .lm-nav{
-             box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+            box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
             position: fixed;
             bottom: 0;
             z-index: 2;

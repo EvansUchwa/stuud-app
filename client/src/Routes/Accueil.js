@@ -1,4 +1,4 @@
-import "../Assets/styles/accueil.css"
+// import "../Assets/styles/accueil.css"
 import { InscriptionionBtn } from "../GlobalComponents/Button";
 const Accueil = () => {
     return <div className="accueil">
