@@ -1,5 +1,5 @@
 const defaultHeaders = {
-    urlBase: process.env.NODE_ENV ? window.location.origin : 'http://localhost:3001',
+    urlBase: window.location.origin,
     headers: {
         "api-secret": "3979af088d2327ca3e1303ed4be4c2de",
         "Name": "Stuud-api",
