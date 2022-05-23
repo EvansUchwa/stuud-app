@@ -1,5 +1,5 @@
 const defaultHeaders = {
-    urlBase: window.location.origin,
+    urlBase: process.env.NODE_ENV ? window.location.origin : 'http://localhost:3001',
     headers: {
         "api-secret": "3979af088d2327ca3e1303ed4be4c2de",
         "Name": "Stuud-api",
@@ -17,14 +17,6 @@ export const axiosReducer = (state = defaultHeaders, action) => {
 
 
         default:
-            return localStorage.getItem('stuud-token') ? {
-                urlBase: 'http://localhost:3001',
-                headers: {
-                    "api-secret": "3979af088d2327ca3e1303ed4be4c2de",
-                    "Authorization": "Bearer " + localStorage.getItem('stuud-token'),
-                    "Name": "Stuud-api",
-                    "Version": "1.0"
-                }
-            } : state;
+            return state;
     }
 }
