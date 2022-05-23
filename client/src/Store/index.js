@@ -7,7 +7,7 @@ import { modalReducer } from "./reducers/modalReducer";
 const store = createStore(combineReducers(
     { auth: authReducer, axiosDefault: axiosReducer, modal: modalReducer }
 ),
-    window.__REDUX_DEVTOOLS_EXTENSION__
+    process.env.NODE_ENV !== "production" && window.__REDUX_DEVTOOLS_EXTENSION__
     && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 // store.subscribe(() => console.log(store.getState()))
