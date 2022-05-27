@@ -38,3 +38,14 @@ export const ConfirmationMessage = ({ props }) => {
         </section>
     </div>
 }
+
+
+export const IllustrationAndTextMessageModal = ({ props }) => {
+    const { illustration, text } = props;
+    return <div className="illustrationAndTextMessageModal">
+        {illustration}
+        <section>
+            {text}
+        </section>
+    </div>
+}

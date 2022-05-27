@@ -1,4 +1,3 @@
-import "../Assets/styles/auth.css";
 import { useParams } from "react-router";
 import { AuthForm } from "../RoutesComponents/auth/index.js";
 import { AuthHeader, AuthSignOrLogMsg } from "../RoutesComponents/auth/authUI";
@@ -11,7 +10,7 @@ const Authentification = () => {
       <div className="auth-body">
         <AuthHeader />
         <section className="ab-form">
-          <h2>{authType == "connexion" ? "Connexion" : "Inscription"}</h2>
+          <h2>{authType.toUpperCase()}</h2>
           <AuthForm props={{ authType }} />
           <AuthSignOrLogMsg props={{ authType }} />
         </section>

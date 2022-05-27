@@ -55,8 +55,8 @@ export function InputText({ props }) {
 export function InputRadio({ props }) {
     const { name, choices, label,
         fieldValue, setFieldValue,
-        formValues, setFormValues } = props
-    return <div className={"formSegment  "}>
+        formValues, setFormValues, size } = props
+    return <div className={"formSegment  " + (size ? size : " fsFull")}>
         <label> {label} </label>
         <section className="fs-radio_checkbox-row">
             {

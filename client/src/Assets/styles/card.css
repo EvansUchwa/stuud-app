@@ -1,6 +1,6 @@
 .courseCard,
 .studentCard{
-    width: 250px;
+    width: 200px;
 }
 
 /* Student card */
@@ -8,7 +8,7 @@
     display: flex;
     flex-direction: column;
     background-color: white;
-    margin: 10px auto;
+    /* margin: 10px auto; */
     overflow: hidden;
     border-radius: 20px;
     height: 250px;
@@ -64,7 +64,7 @@ font-size: 12px;
 .courseCard{
     height: 240px;
     padding: 10px 0;
-    margin: 10px auto;
+    /* margin: 10px auto; */
     background-color: white;
     border-radius: 20px;
     display: flex;

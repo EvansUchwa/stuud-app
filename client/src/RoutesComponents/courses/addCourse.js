@@ -19,7 +19,7 @@ export default function AddCourse() {
             <section>
                 <Form props={{ submit: null }}>
                     <InputRadio props={{
-                        type: "radio",
+                        type: "radio", label: "Tye de cours",
                         name: "type", choice: coursTypesChoicesArray,
                         ph: "Type du cours",
                         choices: typesCourse,

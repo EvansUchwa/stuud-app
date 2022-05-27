@@ -10,12 +10,13 @@ export default function AddAskCourse() {
     const [errors, setErrors] = useState([]);
 
     return (
-        <div className='courses-add'>
+        <div className='courses-request-add'>
             <section>
                 <Form props={{ submitFunction: null }}>
                     <InputRadio props={{
                         type: "radio",
-                        name: "type", choice: coursTypesChoicesArray,
+                        label: "Tye de cours",
+                        name: "type", choices: coursTypesChoicesArray,
                         ph: "Type du cours",
                         formValues, setFormValues,
                     }} />

@@ -1,5 +1,8 @@
 .coursesRequest{
-
+    h1{
+        text-align: center;
+        margin: 25px auto;
+    }
 }
 .coursesRequest-list{
     // background-color: aqua;
@@ -9,4 +12,14 @@
 .crl-courses{
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+
+.courses-request-actions{
+    padding: 50px 0;
+}
+.courses-request-add{
+    width: 90%;
+    margin: auto;
 }

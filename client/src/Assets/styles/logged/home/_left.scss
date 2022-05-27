@@ -7,34 +7,74 @@
     }
     // Hello Box
     .dl-hello{
-        background-color: white;
+        background: var(--gradient1);
         display: flex;
         align-items: center;
         overflow: hidden;
         box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
         padding: 20px 0;
+        position: relative;
+        .dlh-texts{
+            width: 60%;
+            margin: auto auto 75px auto;
+            p,h2{
+                color: var(--cwd2);
+            }
+            b{
+                color: white;
+                margin: 0 5px;
+            }
+        }
+        .dlh-points{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 30%;
+            height: 25vh;
+            // background-color: var(--color1);
+            border-radius: 10px;
+            margin: auto;
+            img{
+                height: 60%;
+                object-fit: contain;
+            }
+        }
+        .dlh-invitationLink{
+            // border: solid 2px var(--color1);
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--ow2);
+            border-radius: 5px;
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 5px;
+            input{
+                border: none;
+                padding: 0;
+                width: 79%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space:nowrap;
+                background-color: transparent;
+                font-size: 16px;
+                &:focus{
+                    background-color: transparent;
+                }
+            }
+            button{
+                width: 20%;
+                i{
+                    color: white;
+                }
+            }
+        }
     }
-    .dlh-texts{
-    width: 60%;
-    margin: auto;
-    }
-    .dlh-points{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        width: 30%;
-        height: 25vh;
-        background-color: var(--color1);
-        border-radius: 10px;
-        margin: auto;
-    }
-    .dlh-points img{
-        height: 60%;
-        object-fit: contain;
-    }
-    .dl-hello a{
-        margin-top: 20px;
-    }
+    
+    
     // 
     
     // Stats
@@ -227,6 +267,13 @@
             width: 95%;
             margin: auto;
         }
+        .dl-hello{
+            .dlh-texts{
+            }
+            .dlh-points{}
+            .dlh-invitationLink{
+            }
+        }
         .dlc-bests{
             justify-content: center;
         }
@@ -266,4 +313,15 @@
         }
     
 
+    }
+
+
+    @media screen and (max-width: 758px) {
+        .dl-hello{
+            .dlh-texts{}
+            .dlh-points{}
+            .dlh-invitationLink{
+                width: 90%;
+            }
+        }
     }

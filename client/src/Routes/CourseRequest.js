@@ -14,12 +14,12 @@ export default function CoursesRequest({ props }) {
                             <CoursesRequestList />
                         </div>
                     }
-                    else if (courseAction == "addAsk") {
-                        return <>
+                    else if (courseAction == "add") {
+                        return <div className='courses-request-actions'>
                             <BreadCumbs props={{ currentPage: "Ajouter une demande de cours", lastPageLink: '' }} />
-                            <h1>Ajout de demande cours</h1>
+                            <h1>Ajout de demande de cours</h1>
                             <AddAskCourse />
-                        </>
+                        </div>
                     }
                 })()
             }

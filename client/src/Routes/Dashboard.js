@@ -2,12 +2,16 @@
 import { Link } from "react-router-dom";
 import { IllustrationImage, SimpleImage } from "../GlobalComponents/Img";
 import DashContributors from "../RoutesComponents/dashboard/contributors";
+import { DashSearchAccountAndNotices } from "../RoutesComponents/dashboard/dashElementUI";
 import DashHello from "../RoutesComponents/dashboard/hello";
 import { DashLastPublications } from "../RoutesComponents/dashboard/lastPublications";
 import DashStats from "../RoutesComponents/dashboard/stats";
 export const Dashboard = () => {
     const msg = 'Voila Voili voilo'
     return <div className="dashboard">
+        <DashSearchAccountAndNotices props={{
+            targetSearch: "home",
+        }} />
         <h1>Dashboard</h1>
         <section className="dashLeft">
             <DashHello />
@@ -25,16 +29,28 @@ export const Dashboard = () => {
                 <b>Pseudonyme</b>
                 <ul className="drpi-publications">
                     <li>
-                        <p>Cours publiés</p>
-                        <span>2</span>
+                        <Link to="">
+                            <p>Mes Cours publiés (2) </p>
+                            <span>
+                                <i className="mdi mdi-chevron-right"></i>
+                            </span>
+                        </Link>
                     </li>
                     <li>
-                        <p>Demande de cours publiés</p>
-                        <span>2</span>
+                        <Link to="">
+                            <p>Mes Demande de cours publiés (2)</p>
+                            <span>
+                                <i className="mdi mdi-chevron-right"></i>
+                            </span>
+                        </Link>
                     </li>
                     <li>
-                        <p>StuudyList</p>
-                        <span>2</span>
+                        <Link to="">
+                            <p>Mes StuudyList (2)</p>
+                            <span>
+                                <i className="mdi mdi-chevron-right"></i>
+                            </span>
+                        </Link>
                     </li>
                 </ul>
             </div>

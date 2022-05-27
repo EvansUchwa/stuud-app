@@ -1,7 +1,21 @@
 .courses{
+    h1{
+        text-align: center;
+        margin: 25px auto;
+    }
 }
-.courses h1{
-    text-align: center;
+.addNewCourseLinks,.addNewCourseRequestLinks{
+    width: 200px;
+    height: 250px;
+    border: dashed 2px grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    // margin: auto;
+    i{
+        font-size: 100px;
+    }
 }
 .courses-list{
     // background-color: aqua;
@@ -11,6 +25,8 @@
 .cl-courses{
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-evenly;
 }
 
 
@@ -27,5 +43,13 @@
     display: flex;
     flex-wrap: wrap;
 }
+@media screen and (max-width: 512px) {
+    .addNewCourseLinks,.addNewCourseRequestLinks{
+        width: 46%;
+        height: 220px;
+    }
+    
+}
+
 
 // 

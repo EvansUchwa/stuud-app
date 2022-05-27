@@ -1,10 +1,7 @@
 
 .dashRight{
-    position: absolute;
-    top: 0;
     background-color: white;
-    bottom: 0;
-    right: 0%;
+    margin-left: auto;
     width: 25%;
     > div{
         border-radius: 10px;
@@ -28,7 +25,7 @@
     text-align: center;
     margin: 25px auto 50px auto;
 }
-.dr-profilInfos ul li{
+.dr-profilInfos ul li a{
     display: flex;
     justify-content: space-between;
     margin: 15px 0;

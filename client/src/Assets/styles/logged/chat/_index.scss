@@ -1,6 +1,349 @@
 .chatPart{
-    height: 100vh;
+    padding: 25px 0;
+    > h1{
+        width: 90%;
+        margin: 25px 0;
+    }
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    overflow-y: auto;
 }
+
+.cp-lists{
+    margin: 0;
+    width: 30%;
+    h2{
+        width: 100%;
+        margin-bottom: 25px;
+    }
+    .cpl-connectedStudents{
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: row;
+        gap: 0 25px;
+        // justify-content: space-between;
+        flex-wrap: wrap;
+        // background-color: aqua;
+        
+        section{
+            // margin-right: 30px;
+            img{
+                @include circleRadius(8vh);
+            }
+        }
+    }
+    .cpl-chatsList{
+        display: flex;
+        flex-wrap: wrap;
+        .cplc-search{
+            width: 100%;
+            background-color: white;
+            height: 50px;
+            overflow: hidden;
+            display: flex;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            i,input{
+                height: 100%;
+            }
+            i{
+                width: 50px;
+                display: inline-block;
+                text-align: center;
+                font-size: 30px;
+                line-height: 50px;
+            }
+            input{
+                border: none;
+                width: calc(100% - 50px);
+            }
+            input:focus{
+                border: none;
+            }
+        }
+
+        .cplc-list{
+            max-height: 55vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            width: 100%;
+            // background-color: palevioletred;
+            display: flex;
+            flex-direction: column;
+            gap: 50px 0;
+
+            > div{
+                display: flex;
+            flex-direction: column;
+            gap: 20px 0;
+                > p{
+                    // margin-bottom: 25px;
+                    @include flexDirectionAndJustify("row",space-between,center);
+                    b{
+                        font-size: 20px;
+                        color: var(--color3);
+                    }
+                    > span{
+                        background-color: transparent;
+                        color: white;
+                        width: 30px;
+                        height: 30px;
+                        line-height: 30px;
+                        border-radius: 10px;
+                        text-align: center;
+                        box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                        i{
+                            font-size: 20px;
+                            color: white;
+                        }
+                    }
+                }
+
+                &:nth-child(1){
+                     span{
+                        background-color: var(--color2);
+                    }
+                }
+                &:nth-child(2){
+                     span{
+                        background-color: white;
+                        i{
+                            color: var(--color1);
+                        }
+                    }
+                }
+            }
+            article{
+                cursor: pointer;
+                background-color: white;
+                padding: 15px 15px;
+                border-radius: 10px;
+                box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+                display: flex;
+                align-items: center;
+                img{
+                    @include circleRadius(8vh);
+                }
+                p{
+                    margin-left: 10px;
+                    span{
+                        margin-top: 10px;
+                        color: grey;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 2;
+                        -webkit-box-orient: vertical;
+                    }
+                    max-width: 60%;
+                   
+                }
+                > span{
+                    margin-top: auto;
+                    margin-left: auto;
+                    color: grey;
+                }
+            }
+        }
+    }
+}
+
+.cp-chatViewEmpty{
+    height: 90vh;
+    width: 60%;
+    text-align: center;
+    @include flexDirectionAndJustify('row',center,center);
+    background-color: white;
+    border-radius: 20px;
+}
+.cp-chatView{
+    position: relative;
+    width: 60%;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    .cpcv-header{
+        width: 100%;
+        background-color: var(--c1WN2);
+        padding: 10px 15px;
+        @include flexDirectionAndJustify("row",space-between,true);
+        .cpcvh-infos{
+            display: flex;
+            align-items: center;
+            > i {
+                margin-right: 20px;
+                font-size: 25px;
+            }
+            p{
+                margin-left: 20px;
+            }
+            img{
+                @include circleRadius(70px);
+            }
+        }
+        .cpcvh-actions{
+            i{
+                font-size: 30px;
+            }
+        }
+    }
+
+    .cpcv-form{
+        width: 90%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: var(--c1WN1);
+        padding: 5px;
+        position: absolute;
+        bottom: 20px;
+        border-radius: 50px;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        >i,>span{
+            width: 50px;
+            // line-height: 50px;
+            // background-color: aqua;
+            text-align: center;
+            display: inline-block;
+        }
+        i{
+            font-size: 20px;
+        }
+        span{
+            background-color: var(--color1);
+            height: 50px;
+            border-radius: 50px;
+            line-height: 50px;
+            i{
+                color: white;
+            }
+        }
+        input{
+            border: none;
+            width: calc(100% - 155px);
+            background-color: var(--c1WN1);
+            // background-color: aqua;
+        }
+        input:focus{
+            border: none;
+            background-color: transaparent!important;
+        }
+    }
+    
+}
+
+
+.cpcv-messages{
+    // background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 95%;
+    gap: 30px;
+    padding: 20px 0px;
+    // background-color: pink;
+    .userMessage,.otherMessage{
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+    
+        section{
+            display: flex;
+            align-items: center;
+            // justify-content: space-between;
+            gap: 10px;
+            p{
+                background-color: var(--color1);
+                color: white;
+                padding: 20px 15px;
+                max-width: calc(100% - 100px);
+                border-radius: 20px;
+            }
+            img{
+                @include circleRadius(50px);
+                display: inline-block;
+                margin-top: auto;
+            }
+        }
+        b{
+            margin: 10px 70px 0 auto;
+            color: grey;
+        }
+    }
+    .userMessage{
+        margin-left: auto;
+    }
+    .otherMessage{
+        margin-left: 0;
+        section{
+            p{
+                background-color: var(--c1WN1);
+                color: var(--color3);
+            }
+        }
+        b{
+            margin: 10px auto 0 70px;
+        }
+    }
+}
+
+
+.groupMessagesPreview{
+    background-color: var(--color2) !important;
+    b{
+        color: white;
+    }
+    span{
+        color: white !important;
+    }
+}
+
+
+ @media screen and (max-width: 758px) {
+    .cp-lists{
+        width: 95%;
+        .cpl-connectedStudents{
+            section{
+                img{
+                    // @include circleRadius(40px);
+                }
+            }
+        }
+        .cpl-chatsList{
+            .cplc-list{
+                article{
+                    img{
+                        // @include circleRadius(50px);
+                    }
+                    p{
+                        span{ 
+                        }
+                    }
+                    > span{
+                    }
+                }
+            }
+        }
+    }
+    .cp-chatView,.cp-chatViewEmpty{
+        // display: none;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100000;
+    }
+ }
+
+
+ @media screen and (min-width: 758px) and (max-width: 1024px){
+    .cp-lists{
+        width: 45%;
+    }
+    .cp-chatViewEmpty,.cp-chatView{
+        width: 50%;
+    }
+    
+ }

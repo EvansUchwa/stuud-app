@@ -15,7 +15,7 @@
   background-color: white;
   padding: 10px 20px;
   border-radius: 10px;
-  animation: modalFade 0.2s ease-in-out;
+  animation: modalFade 0.6s ease-in-out;
 }
 .mb-head-closer,
 .mb-foot-closer {
@@ -61,10 +61,24 @@
   color: grey;
 }
 
+
+/* illustrationAndTextMessageModal */
+.illustrationAndTextMessageModal{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 300px;
+}
+.illustrationAndTextMessageModal h2{
+  color: var(--color1);
+}
+
+/*  */
 /*  */
 @keyframes modalFade {
   from {
-    transform: translateY(-100%);
+    transform: translateY(-50%);
     opacity: 0;
   }
   to {

@@ -13,14 +13,10 @@ import { useEffect } from "react";
 import "./Assets/styles/index.scss";
 // import "./Assets/styles/courses.scss";
 
-
-import "./Assets/styles/app.css";
 import "./Assets/styles/card.css";
 // import "./Assets/styles/students.css";
 // import "./Assets/styles/allCourses.css";
 // import "./Assets/styles/chat.css";
-
-
 import Error from "./Routes/Error";
 import Dashboard from "./Routes/Dashboard";
 import Authentification from "./Routes/Auth";
@@ -33,7 +29,8 @@ import { useDispatch, useSelector } from "react-redux";
 
 import axios from "axios";
 import { axiosBaseSelector, axiosHeadersSelector } from "./Store/selectors/axiosSelector";
-import { setAuthedGeneralInfo } from "./Store/actions/authActions";
+import { setAuthedGeneralInfo, setIsAuthed } from "./Store/actions/authActions";
+import { setAuthLoad } from "./Store/actions/loadActions";
 import { authSelector } from "./Store/selectors/authSelectors";
 import Courses from "./Routes/Courses";
 import Chat from "./Routes/Chat";
@@ -41,7 +38,9 @@ import Student from "./Routes/Student";
 
 import CoursesRequest from "./Routes/CourseRequest";
 import { Modal } from "./GlobalComponents/Modal";
-
+import moment from "moment"
+import 'moment/locale/fr'
+moment.locale("fr");
 
 function App() {
   const location = useLocation()
@@ -58,11 +57,13 @@ function App() {
   useEffect(() => {
     const ac = new AbortController()
     if (localAuthed && authToken) {
-
+      dispatch(setAuthLoad(true))
       async function getUserConnceted() {
         let getUserAuthedInfos = await axios.get(apiBase + '/user/getUserConnectedAllInfos',
           { headers: { ...apiHeaders, 'Authorization': 'Bearer ' + authToken } })
+        dispatch(setIsAuthed())
         dispatch(setAuthedGeneralInfo(getUserAuthedInfos.data))
+        dispatch(setAuthLoad(false))
       }
 
       try {
@@ -89,7 +90,7 @@ function App() {
     { path: "/", components: <Accueil />, requireAuth: false, hasNav: true },
     { path: "/Contact", components: <p>Contact</p>, requireAuth: false, hasNav: true },
     {
-      path: "/Authentification/:authType", components: <Authentification />, requireAuth: false, hasNav: true
+      path: "/Auth/:authType", components: <Authentification />, requireAuth: false, hasNav: true
     },
 
     { path: "/Mail/:mailAction", components: <MailAction />, requireAuth: false, hasNav: true },
@@ -163,7 +164,7 @@ function App() {
   </Route>);
   return (
     <>
-      <NavMiddleware props={{ currentRoute: location.pathname, auth }} />
+      {/* <NavMiddleware props={{ currentRoute: location.pathname, auth }} /> */}
       <Modal />
       <Routes>
         {routesMaps}

@@ -1,0 +1,250 @@
+
+@font-face {
+  font-family: "Graphik-Medium";
+  src: url("../fonts/Graphik-Medium.otf");
+}
+@font-face {
+  font-family: "Graphik-Regular";
+  src: url("../fonts/Graphik-Regular.otf");
+}
+.or{
+  background-color: #b49c16;
+}
+.argent{
+  background-color: #807e7f;
+}
+.bronze{
+background-color: #b05f20;
+}
+body {
+  font-family: "Graphik-Regular";
+}
+b,h1,h2,h3,h4{
+  font-family: "Graphik-Medium";
+}
+p,span,i,label,b,h1,h2,h3,h4,h5{
+  color: var(--color4);
+}
+button {
+  border-radius: 5px;
+}
+input,
+select {
+  border-radius: 5px;
+}
+*{
+  box-sizing: border-box !important;
+}
+i,label{
+  cursor: pointer;
+}
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+
+
+/* Other UI */
+.websiteLogoLoader{
+  background-color: #247B91;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.websiteLogoLoader{
+  
+}
+
+.myBreadCumbs{
+  max-width: 90%;
+  margin: auto;
+  display: flex;
+}
+.myBreadCumbs p{
+  color: grey;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.myBreadCumbs span{
+  color: var(--color1);
+  margin-left: 5px;
+}
+
+/* My dropdown */
+.myDropDown{
+  position: relative;
+}
+.myDropDownItems{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  position: absolute;
+  max-width: 200px;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  background-color: white;
+  top: 100%;
+  right: 0;
+  border-radius: 10px;
+  transition: all .5s ease;
+  cursor: pointer;
+  a,span,i{
+    padding: 10px 15px;
+    color: var(--color4);
+  }
+}
+.myDropDownItemsVisible{
+  opacity: 1;
+  max-height: 300px;
+  overflow: initial;
+}
+// 
+
+
+
+
+// Dash ui elements
+.dash-titleAndSortBy{
+    margin: 25px auto;
+    width: 90%;
+    // background-color: aqua;
+    @include flexDirectionAndJustify("row",space-between,"true");
+
+    section{
+        &:first-child{
+            max-width: 65%;
+
+        }
+        &:last-child{
+            @include flexDirectionAndJustify("row",space-between,"true");
+             //background-color: green;
+             >img{
+                margin-right: 5px;
+                height: 30px;
+             }
+        }
+        &:last-child p{
+            @include flexDirectionAndJustify("column");
+        }
+        select{
+            padding: 5px 10px;
+        }
+   
+
+    }
+
+    select{
+        background-color: white;
+    }
+}
+
+
+.dash-search_account_notice{
+    @include flexDirectionAndJustify("row",space-between,"true");
+    width: 100%;
+    height: 10vh;
+    padding: 50px 0 !important;
+    // background-color: var(--c1WN1);
+    // z-index: 1000;
+    input{
+        // background-color: #d3e4e9;
+    }
+    
+    .dsad-account{
+        margin-left: auto
+    }
+    .dsad-account{
+        p {
+            @include flexDirectionAndJustify("row",center,"true");
+            img{
+                @include circleRadius(50px);
+                cursor: pointer;
+            }
+            i{
+                font-size: 30px;
+            }
+        }
+    }
+    .dsad-notices{
+        margin-left: 5px;
+        margin-right: 25px;
+        i{
+            font-size: 25px;
+        }
+    }
+    .dsad-add_notices{
+        margin-right: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        i{
+            font-size: 3vh;
+        }
+        .addContentBtn{
+            background-color: var(--color1);
+            color: white;
+            @include circleRadius(30px);
+            
+        }
+       
+    }
+}
+
+// Serach UI
+.formSegmentSearchWithIcon{
+    @include flexDirectionAndJustify("row",initial,"true");
+    background-color: white;
+    border-radius: 10px;
+    margin-left: 2%;
+    width: 50px;
+    transition: all .5s ease;
+    overflow: hidden;
+    cursor: pointer;
+    input{
+        border: none;
+        width: 100%;
+        display: none;
+    }
+    input:focus{
+        border: none;
+    }
+    i{
+        width: 50px;
+        height: 50px;
+        line-height: 50Px;
+        display: inline-block;
+        text-align: center;
+        font-size: 3vh;
+    }
+    &:hover{
+        width: 60%;
+        input{
+            display: block;
+        }
+    }
+}
+
+
+
+/*  */
+@media screen and (max-width: 512px) {
+  .nav-pcLinks{
+    display: none;
+  }
+  .nav-auth {
+    margin-left: auto;
+  }
+}
+
+@media screen and (min-width: 512px) and (max-width: 768px){
+  .nav-pcLinks{
+    display: none;
+  }
+  .nav-auth {
+    margin-left: auto;
+  }
+}

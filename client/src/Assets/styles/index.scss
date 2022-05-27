@@ -1,6 +1,14 @@
 @import '_mixins.scss';
 @import '_variables.scss';
+@import '_utils.scss';
+
+@import './notLogged/_app.scss';
 @import './notLogged/_home.scss';
+@import './notLogged/_auth.scss';
+
+
+
+
 @import './logged/_app.scss';
 @import './logged/home/_index.scss';
 @import './logged/home/_left.scss';

@@ -1,7 +1,6 @@
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { setIsDisconnected } from "../../Store/actions/authActions"
-import { removeAuthHeaderToken } from "../../Store/actions/axiosActions"
 import { ConnexionBtn } from "../Button"
 import { SimpleImage } from "../Img"
 import { asideMenuLinks } from "../../Rawdata/links"
@@ -40,13 +39,6 @@ export const NotConnectedNavbar = () => {
 
 
 export const ConnectedNavbar = () => {
-    const dispatch = useDispatch();
-
-    function disconnectUser() {
-        dispatch(removeAuthHeaderToken())
-        dispatch(setIsDisconnected())
-    }
-
     function toggleDashSideBar() {
         document.querySelector('.nd-sideBar').classList.toggle('nd-sideBarVisible')
     }
@@ -59,10 +51,6 @@ export const ConnectedNavbar = () => {
             <SimpleImage props={{ src: 'logos/designB.png', alt: 'Logo Menu', className: "" }} />
         </section>
 
-
-        <section className="nd-logout" onClick={() => disconnectUser()}>
-            <i className="mdi mdi-logout"></i>
-        </section>
 
         <aside className="nd-sideBar">
             <div className="nd-s-body">
@@ -82,11 +70,6 @@ export const ConnectedNavbar = () => {
                             <i className="mdi mdi-chevron-right"></i>
                         </Link>)
                     }
-                </section>
-                <section className="nd-s-logout">
-                    <span onClick={() => disconnectUser()}>
-                        Se deconnecter
-                    </span>
                 </section>
             </div>
         </aside>
@@ -111,7 +94,7 @@ export const ConnectedAsideNav = ({ props }) => {
     }
     return <aside className="lm-nav">
         <section className="lmn-logo">
-            <SimpleImage props={{ src: "logos/designB.png" }} />
+            <SimpleImage props={{ src: "logos/mergeW.png" }} />
         </section>
         <section className="lmn-menu">
             {
@@ -122,12 +105,12 @@ export const ConnectedAsideNav = ({ props }) => {
                 </Link>)
             }
         </section>
-        <section className="lmn-account">
+        {/* <section className="lmn-account">
             <i className="mdi mdi-logout" onClick={() => confirmLogout()}></i>
             <Link to={"/Profil/view"}>
                 <SimpleImage props={{ src: "profils/connected.jpg" }} />
             </Link>
-        </section>
+        </section> */}
 
     </aside>
 }

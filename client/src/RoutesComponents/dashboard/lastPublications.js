@@ -17,7 +17,7 @@ export function DashLastPublications({ props }) {
 
             <div className={'dllp-title ' + (type === 'course' ? "publishedStyle" : "askedStyle")}>
                 <h2>{dispatchTitleAndKey().title}</h2>
-                <Link to={""}>
+                <Link to={type === "course" ? "/Course/add" : "/Course-request/add"}>
                     <i className='mdi mdi-plus'></i>
                 </Link>
             </div>

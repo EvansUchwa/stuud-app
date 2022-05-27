@@ -1,15 +1,20 @@
-export const authReducer = (state = { isAuthed: false }, action) => {
+const defaultValue = null
+
+export const authReducer = (state = null, action) => {
     switch (action.type) {
         case 'SET_IS_AUTHED':
-            return { ...state, isAuthed: true };
+            return { isAuthed: true };
 
         case 'SET_AUTHED_GENERAL_INFOS':
             return { ...state, generalInfos: action.payload.general };
 
+        case 'SET_AUTH_ON_PROCESS':
+            return { ...state, load: action.payload };
+
         case 'SET_IS_DISCONNECT':
-            return { isAuthed: false, generalInfos: null };
+            return null;
 
         default:
-            return localStorage.getItem('stuud-isAuth') ? { isAuthed: true } : state;
+            return state;
     }
 }
