@@ -1,29 +1,26 @@
 const mysql = require('mysql');
 
 
+const onlineDb = {
+    host: 'auth-db770.hostinger.com',
+    user: 'u736848414_stuud_root',
+    password: '403Forbidden',
+    database: 'u736848414_stuud_db',
+    port:3306,
+    connectionLimit : 10,
+    acquireTimeout  : 10000
+}
 
-// const onlineDb = {
+// const onlineDb2 = {
 //     host: 'remotemysql.com',
 //     user: 'v8Eel5U53a',
-//     password: "1PBVndMKKl",
+//     password: "5BiMG3EVq2",
 //     database: 'v8Eel5U53a',
-//      port:3306,
+//     port:3306,
+//     connectionLimit : 10,
+//     acquireTimeout  : 10000
 // }
 
-const onlineDb = {
-    host: 'stuud.fr',
-    user: 'u736848414_stuud_root',
-    password: "Univearn1234",
-    database: 'u736848414_stuud_db',
-     port:3306,
-     connectionLimit : 10,
-  acquireTimeout  : 10000
-}
-// umbriel.o2switch.net
-
-
-//  Abcd1111
-// SIxCC0>9|h<O!O}J
 
 const localDb = {
     host: 'localhost',
