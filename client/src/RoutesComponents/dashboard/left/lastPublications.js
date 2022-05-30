@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import { AddNewCourseOrRequestLinks } from '../../utils/links';
 
 export function DashLastPublications({ props }) {
     const { type } = props;
@@ -17,9 +18,7 @@ export function DashLastPublications({ props }) {
 
             <div className={'dllp-title ' + (type === 'course' ? "publishedStyle" : "askedStyle")}>
                 <h2>{dispatchTitleAndKey().title}</h2>
-                <Link to={type === "course" ? "/Course/add" : "/Course-request/add"}>
-                    <i className='mdi mdi-plus'></i>
-                </Link>
+                <AddNewCourseOrRequestLinks props={{ type }} />
             </div>
             <section className='dllp-publications'>
                 {

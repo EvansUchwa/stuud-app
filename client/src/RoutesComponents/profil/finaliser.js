@@ -6,7 +6,7 @@ import { getError } from "../../Assets/js/formValidator";
 import { IllustrationImage } from "../../GlobalComponents/Img";
 import { SimpleIconLoader } from "../../GlobalComponents/loader";
 import { authSelector } from "../../Store/selectors/authSelectors";
-import { axiosInfos } from "../../Store/selectors/axiosSelector";
+import { axiosHeadersSelector, axiosInfos } from "../../Store/selectors/axiosSelector";
 import {
     FormStep1, FormStep2, FormStep3
 } from "./finalisation/UI";
@@ -14,8 +14,10 @@ import {
 export const Finaliser_profil = () => {
 
     const apiBase = useSelector(axiosInfos).urlBase
-    const apiHeaders = useSelector(axiosInfos).headers;
-    const userAuthedInfo = useSelector(authSelector)
+    const axiosParams = useSelector(axiosInfos);
+    const apiHeaders = axiosParams.headers;
+
+    const auth = useSelector(authSelector)
     const [errors, setErrors] = useState([]);
     const [finaliseError, setFinaliseError] = useState('')
     const [currentStep, setCurrentStep] = useState(1)
@@ -69,13 +71,13 @@ export const Finaliser_profil = () => {
 
         try {
             let insertUserInfo = await axios.put(apiBase + '/user/finaliseUserProfil',
-                { ...formValues, user_id: userAuthedInfo.generalInfos.id }, { headers: apiHeaders })
+                { ...formValues, user_id: auth.generalInfos.id }, { headers: apiHeaders })
 
             if (insertUserInfo.data.finalised) {
                 setAchieve(true)
 
                 setTimeout(() => {
-                    window.location = '/Course/list'
+                    window.location = '/Dashboard'
                 }, 5000)
             }
         } catch (error) {
@@ -103,6 +105,9 @@ export const Finaliser_profil = () => {
                 </Zoom> :
                     <>
                         <h1>Finalise ton profil</h1>
+                        {/* <h4>
+                            {JSON.stringify(axiosParams)}
+                        </h4> */}
                         <h4>Remplir ces informations te permet de rejoindre un groupe</h4>
 
                         <section className="pf-steps-indicator">

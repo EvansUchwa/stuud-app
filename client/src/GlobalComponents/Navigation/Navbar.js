@@ -18,8 +18,7 @@ export const NotConnectedNavbar = () => {
     return <nav className="nav">
         <section className="nav-logo">
             <Link to={"/"}>
-                <SimpleImage props={{ src: 'logos/designW.png', alt: 'Logo Menu', className: "" }} />
-                <SimpleImage props={{ src: 'logos/letterW.png', alt: 'Logo Menu', className: "" }} />
+                <SimpleImage props={{ src: 'logos/mergeW2.png', alt: 'Logo Menu', className: "" }} />
             </Link>
         </section>
         <section className="nav-pcLinks">

@@ -5,6 +5,7 @@ import { LogoLoader } from "./GlobalComponents/loader";
 import { useSelector } from "react-redux";
 import { loadSelector } from "./Store/selectors/loadSelector";
 import { authLinks } from "./Rawdata/links";
+import { axiosHeadersSelector, axiosInfos } from "./Store/selectors/axiosSelector";
 
 
 // const userIsAuthed = { isAuthed: false, profil_completed: false }
@@ -14,30 +15,32 @@ import { authLinks } from "./Rawdata/links";
 
 export const AuthProtectedRoute = ({ auth }) => {
     const [toShow, setToShow] = useState(null);
-    const load = useSelector(loadSelector)
-    const location = useLocation();
+    const load = useSelector(loadSelector);
+    const axiosParams = useSelector(axiosInfos)
     const navigate = useNavigate()
+    const location = useLocation()
     useEffect(() => {
         if (load) {
             setToShow(<LogoLoader />)
         } else {
             if (auth !== null) {
-                if (auth.generalInfos && auth.generalInfos.profil_completed === 0) {
-                    if (location.pathname !== "/Profil/finalisation") {
+                if (auth.generalInfos) {
+                    if (auth.generalInfos && auth.generalInfos.profil_completed === 0) {
                         navigate("/Profil/finalisation")
-                    }
-                } else {
-                    if (location.pathname === "/Profil/finalisation") {
+                    } else {
+                        // location.pathname !== "/Profil/finalisation" ? navigate(location.pathname) : navigate("/Dashboard")
                         navigate("/Dashboard")
                     }
+                    setToShow(<AuthedAppLayout />)
+                } else {
+                    setToShow(<LogoLoader />)
                 }
-                setToShow(<AuthedAppLayout />)
 
             } else {
                 navigate(authLinks.connexion)
             }
         }
-    }, [auth, load])
+    }, [auth, load, axiosParams])
 
     return toShow
 }
@@ -45,23 +48,35 @@ export const AuthProtectedRoute = ({ auth }) => {
 
 export const AuthSimpleRoute = ({ auth }) => {
     const [toShow, setToShow] = useState(null);
-    const location = useLocation();
+    const load = useSelector(loadSelector);
     const navigate = useNavigate()
-    useEffect(() => {
+    const location = useLocation()
 
-        if (auth !== null) {
-            if (location.pathname !== "/Dashboard") {
-                navigate('/Dashboard')
-            } else {
-                setToShow('haha dash')
+    useEffect(() => {
+        if (load) {
+            setToShow(<LogoLoader />)
+        } else {
+            if (auth !== null) {
+                if (auth.generalInfos) {
+                    if (auth.generalInfos && !auth.generalInfos.profil_completed) {
+                        navigate("/Profil/finalisation")
+                    } else {
+                        // location.pathname !== "/Profil/finalisation" ? navigate(location.pathname) : navigate("/Dashboard")
+                        navigate("/Dashboard")
+                    }
+                } else {
+                    setToShow(<LogoLoader />)
+                }
+            }
+            else {
+                setToShow(<NotAuthedAppLayout >
+                    <Outlet />
+                </NotAuthedAppLayout>)
             }
         }
-        else {
-            setToShow(<NotAuthedAppLayout >
-                <Outlet />
-            </NotAuthedAppLayout>)
-        }
-    }, [auth])
+
+    }, [auth, load])
     return toShow
 }
+
 

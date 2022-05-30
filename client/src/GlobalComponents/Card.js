@@ -29,7 +29,7 @@ export const StudentCard = ({ props }) => {
 }
 
 export const CourseCard = ({ props }) => {
-    const { cardType, id, type, name, faculty, number, autor } = props
+    const { cardType, id, type, title, faculty, number, autor, fileCount } = props
     const cardColorClass = cardType;
     return <div className={"courseCard "}>
         <section className="cc-head">
@@ -48,12 +48,13 @@ export const CourseCard = ({ props }) => {
                 <span></span>
 
             </div>
+            <p>{fileCount ? fileCount : 0} fichier(s)</p>
         </section>
         <section className="cc-body">
-            <b>{name} </b>
+            <b>{title} </b>
             <p> {type} </p>
             <p>{faculty}</p>
-            <p>Course {number}</p>
+            <p>Cours n* {number}</p>
 
         </section>
         <section className="cc-foot">

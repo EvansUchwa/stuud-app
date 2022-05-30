@@ -12,7 +12,7 @@
     content: "";
     width: 100%;
     position: fixed;
-    height: 30%;
+    height: 50%;
     top: 0;
     background-color: var(--color1);
   }
@@ -31,14 +31,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 15px 0;
+    margin: 25px 0;
   }
   .ab-header hr {
     margin: 0 10px;
     height: 30px;
   }
   .ab-header img {
-    height: 5vh;
+    height: 4vh;
   }
   
   .ab-form {

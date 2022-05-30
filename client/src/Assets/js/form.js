@@ -17,30 +17,23 @@ export const getError = (fieldName, errors) => {
         return <span className="fieldError" >{error[0].message}</span>
     }
 }
-export const handleFieldChangeAndSearch = (event,
-    userInfo, setUserInfo,
-    errors, setErrors,
-    searchObjKey,
-    arraySearch, setArrayResult) => {
-    const name = event.target.name;
-    const value = event.target.value;
-    const suggestionBox = event.currentTarget.nextElementSibling;
-
-    document.querySelectorAll('.fs-suggestionList').forEach(element => {
-        if (element != suggestionBox) {
-            element.style.display = 'none'
-            suggestionBox.style.display = 'flex'
-        } else {
-            element.style.display = 'flex'
+export function setFormError(fieldName, typeError, errors, setErrors, validation) {
+    if (typeError == "passwordConfirmation") {
+        const copyErrs = [...errors]
+        const errorExist = errors.findIndex(err => err.name == fieldName)
+        if (!validation) {
+            if (errorExist == -1) {
+                copyErrs.push({ name: fieldName, message: "Les mots de passe ne correspondent pas" })
+                return setErrors(copyErrs)
+            }
         }
-    });
-
-
-    const copyArray = arraySearch;
-    const filter = copyArray.filter(item => item[searchObjKey].toLowerCase().includes(value.toLowerCase()))
-
-    setArrayResult(filter)
-    setUserInfo({ ...userInfo, [name]: value })
+        else {
+            copyErrs.splice(errorExist, 1)
+            return setErrors(copyErrs)
+        }
+    }
 }
+
+
 
 

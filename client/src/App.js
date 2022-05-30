@@ -24,12 +24,11 @@ import MailAction from "./Routes/Mail";
 import "./Assets/styles/materialdesignicons.min.css";
 import { useLocation, } from "react-router";
 import { Profil } from "./Routes/Profil";
-import { NavMiddleware, AuthSimpleRoute, AuthProtectedRoute } from "./middleware";
+import { AuthSimpleRoute, AuthProtectedRoute } from "./middleware";
 import { useDispatch, useSelector } from "react-redux";
 
-import axios from "axios";
 import { axiosBaseSelector, axiosHeadersSelector } from "./Store/selectors/axiosSelector";
-import { setAuthedGeneralInfo, setIsAuthed } from "./Store/actions/authActions";
+import { getUserData, setIsAuthed } from "./Store/actions/authActions";
 import { setAuthLoad } from "./Store/actions/loadActions";
 import { authSelector } from "./Store/selectors/authSelectors";
 import Courses from "./Routes/Courses";
@@ -40,12 +39,11 @@ import CoursesRequest from "./Routes/CourseRequest";
 import { Modal } from "./GlobalComponents/Modal";
 import moment from "moment"
 import 'moment/locale/fr'
+import { setAuthHeaderToken } from "./Store/actions/axiosActions";
 moment.locale("fr");
 
 function App() {
   const location = useLocation()
-  const apiBase = useSelector(axiosBaseSelector);
-  const apiHeaders = useSelector(axiosHeadersSelector);
   const dispatch = useDispatch();
   const auth = useSelector(authSelector)
   const authToken = localStorage.getItem('stuud-token')
@@ -58,16 +56,11 @@ function App() {
     const ac = new AbortController()
     if (localAuthed && authToken) {
       dispatch(setAuthLoad(true))
-      async function getUserConnceted() {
-        let getUserAuthedInfos = await axios.get(apiBase + '/user/getUserConnectedAllInfos',
-          { headers: { ...apiHeaders, 'Authorization': 'Bearer ' + authToken } })
-        dispatch(setIsAuthed())
-        dispatch(setAuthedGeneralInfo(getUserAuthedInfos.data))
-        dispatch(setAuthLoad(false))
-      }
-
+      dispatch(setAuthHeaderToken(authToken))
+      dispatch(setIsAuthed())
       try {
-        getUserConnceted();
+        dispatch(getUserData(authToken))
+        dispatch(setAuthLoad(false))
 
       } catch (error) {
         if (!['/ressourceNotFound', '/pageNotFound', '/offline'].includes(location.pathname)) {

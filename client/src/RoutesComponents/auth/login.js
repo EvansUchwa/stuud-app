@@ -1,5 +1,7 @@
 import React from 'react'
-import { InputPassword, InputText } from '../../GlobalComponents/Form.js'
+import { InputText } from '../../GlobalComponents/Form/text.js'
+import { InputPassword } from '../../GlobalComponents/Form/password'
+
 
 function Login({ props }) {
     const { errors, setErrors,

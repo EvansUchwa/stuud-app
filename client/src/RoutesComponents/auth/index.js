@@ -7,7 +7,7 @@ import { setIsAuthed, setAuthedGeneralInfo } from "../../Store/actions/authActio
 import { setAuthHeaderToken } from "../../Store/actions/axiosActions";
 import Login, { handleLogin } from "./login";
 import SignUp, { handleSignUp } from "./signUp";
-import { Form } from "../../GlobalComponents/Form";
+import { Form } from "../../GlobalComponents/Form/index.js";
 
 
 export const AuthForm = ({ props }) => {

@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
-import { InputFile, InputText, InputTags, TextArea, InputRadio, Form } from '../../GlobalComponents/Form.js';
+import { InputText, TextArea } from '../../GlobalComponents/Form/text.js';
+import { InputRadio } from '../../GlobalComponents/Form/checkbox_radio.js';
+import { InputTags } from '../../GlobalComponents/Form/tag.js';
+import { InputFile } from '../../GlobalComponents/Form/file.js';
+import { Form } from '../../GlobalComponents/Form/index.js';
 import { coursTypesChoicesArray } from '../../Rawdata/formFields';
+import { CourseCard } from '../../GlobalComponents/Card.js';
 
 
 
-export default function AddCourse() {
+export default function AddCourse({ props }) {
+    const { auth } = props;
+    const { generalInfos } = auth;
+    const { pseudo, faculty, university } = generalInfos
     const [formValues, setFormValues] = useState({
-        type: "", title: "", number: "", year: "", description: "", courseFiles: "", tags: ""
+        type: "", title: "", school_subject: "", number: "", year: "", description: "", courseFiles: "", tags: ""
     })
     const [errors, setErrors] = useState([]);
     const typesCourse = [
@@ -16,10 +24,18 @@ export default function AddCourse() {
     ]
     return (
         <div className='courses-add'>
-            <section>
+            <section className='ca-cardPreview'>
+                <CourseCard props={{
+                    cardType: "publishedCourse", id: null, type: formValues.type,
+                    title: formValues.title, faculty: "Science de la vie et de la terre",
+                    number: formValues.number, autor: pseudo,
+                    fileCount: formValues.courseFiles.length
+                }} />
+            </section>
+            <section className='ca-form'>
                 <Form props={{ submit: null }}>
                     <InputRadio props={{
-                        type: "radio", label: "Tye de cours",
+                        type: "radio", label: "Type de cours",
                         name: "type", choice: coursTypesChoicesArray,
                         ph: "Type du cours",
                         choices: typesCourse,
@@ -32,7 +48,7 @@ export default function AddCourse() {
                         normalizer: "onlyLetterAndNumberWithSpace"
                     }} />
                     <InputText props={{
-                        name: "title", label: "Matière du cours",
+                        name: "school_subject", label: "Matière du cours",
                         ph: "Anglais,Français,Economie,etc...",
                         formValues, setFormValues,
                         normalizer: "onlyLetterAndNumberWithSpace"

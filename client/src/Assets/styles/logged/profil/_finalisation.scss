@@ -4,6 +4,8 @@
     align-items: center;
     position: relative;
     min-height: 100vh;
+    margin: auto;
+    width: 100%;
 }
 // .profil-finalisation::after{
 //     position: absolute;
@@ -113,3 +115,14 @@
     margin: auto;
   }
   /*  */
+
+
+  @media screen and (max-width:512px) {
+    .pf-body{
+      width: 90%;
+      margin: auto;
+      // form{
+      //   width: 100%;
+      // }
+    }
+  }

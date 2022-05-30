@@ -178,14 +178,15 @@
         color: var(--color2);
     }
     .publishedStyle{
-        span,button,a{
+        span,button{
             background-color: var(--publishedCourseBg);
         }
+       
     }
     .askedStyle{
-        span,button,a{
+        span,button{
             background-color: var(--askedCourseBg);
-        } 
+        }
     }
     // 
 

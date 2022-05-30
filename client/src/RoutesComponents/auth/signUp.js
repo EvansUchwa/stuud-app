@@ -1,5 +1,8 @@
 import React from 'react'
-import { InputMail, InputPassword, InputText } from '../../GlobalComponents/Form.js'
+import { InputMail, InputText } from '../../GlobalComponents/Form/text.js'
+import { InputPassword } from '../../GlobalComponents/Form/password.js'
+
+
 
 function SignUp({ props }) {
     const { errors, setErrors,

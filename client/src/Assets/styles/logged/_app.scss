@@ -23,7 +23,7 @@ button{
             justify-content: center;
             height: 30vh;
             background-color: var(--color1);
-            border-bottom-right-radius: 100px;
+            clip-path: polygon(50% 0%, 100% 0, 100% 0, 100% 100%, 100% 100%, 50% 70%, 0 100%, 0 100%, 0 100%, 0 0);
             img{
                 height: 10vh;
                 max-width: 60%;
@@ -69,7 +69,20 @@ button{
     }
 }
 
-
+.addNewCourseLink{
+    border: dashed 2px var(--publishedCourseBg);
+    i{
+        color: var(--publishedCourseBg) !important;
+    }
+}
+.addNewCourseRequestLink{
+    border: dashed 2px var(--askedCourseBg);
+    i{
+        color: var(--askedCourseBg) !important;
+    }
+}
+// publishedCourseBg
+// askedCourseBg
 
 @media screen and (min-width: 1024px) and (max-width: 1400px){
     // .lm-nav{

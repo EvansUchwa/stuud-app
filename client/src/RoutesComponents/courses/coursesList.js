@@ -2,7 +2,7 @@ import { CourseCard } from "../../GlobalComponents/Card"
 import { Link } from "react-router-dom"
 export const CoursesList = () => {
     return <section className="cl-courses">
-        <Link to="/Course/add" className="addNewCourseLinks">
+        <Link to="/Course/add" className="cardSize addNewCourseLink">
             <i className="mdi mdi-plus"></i>
         </Link>
         {

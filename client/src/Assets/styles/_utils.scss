@@ -91,6 +91,7 @@ ul{
   border-radius: 10px;
   transition: all .5s ease;
   cursor: pointer;
+  z-index: 100000;
   a,span,i{
     padding: 10px 15px;
     color: var(--color4);

@@ -1,5 +1,5 @@
 import React from 'react'
-import { SimpleImage } from '../../GlobalComponents/Img'
+import { SimpleImage } from '../../../GlobalComponents/Img'
 function DashContributors() {
     const contributors = [
         {

@@ -1,13 +1,13 @@
-.courses{
+.courses,.coursesRequest{
     h1{
         text-align: center;
         margin: 25px auto;
     }
 }
-.addNewCourseLinks,.addNewCourseRequestLinks{
+
+.cardSize{
     width: 200px;
-    height: 250px;
-    border: dashed 2px grey;
+    height: 240px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,12 +17,12 @@
         font-size: 100px;
     }
 }
-.courses-list{
+.courses-list,.coursesRequest-list{
     // background-color: aqua;
     display: flex;
     flex-direction: column;
 }
-.cl-courses{
+.cl-courses,.crl-courses{
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -30,26 +30,61 @@
 }
 
 
-.courses-actions{
+.courses-actions,.courses-request-actions{
     padding: 50px 0;
 }
 // Add course page
-.courses-add{
+.courses-add,.courses-request-add{
     width: 90%;
     margin: auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 
+    .ca-cardPreview,.cra-cardPreview{
+        width: 30%;
+        display: flex;
+        justify-content: center;
+        }
+        .ca-form,.cra-form{
+        width: 70%;
+        }
 }
-.courses-add section form{
+
+.courses-add section form,.courses-request-add section form{
     display: flex;
     flex-wrap: wrap;
+    input,textarea{
+        border: none;
+        border-radius: 20px;
+    }
+    textarea{
+        height: 10vh;
+    }
 }
 @media screen and (max-width: 512px) {
-    .addNewCourseLinks,.addNewCourseRequestLinks{
+    .cardSize{
         width: 46%;
         height: 220px;
     }
     
 }
 
+@media screen and  (max-width: 758px) {
+    .cardSize{
+        width: 46%;
+        height: 220px;
+    }
 
+    .courses-add,.courses-request-add{
+        // flex-direction: column-reverse;
+        .ca-cardPreview,.cra-cardPreview{
+            width: 100%;
+            }
+            .ca-form,.cra-form{
+            width: 100%;
+            }
+    }
+    
+}
 // 

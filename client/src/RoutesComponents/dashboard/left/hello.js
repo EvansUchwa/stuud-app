@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { IllustrationImage } from '../../GlobalComponents/Img'
-import { IllustrationAndTextMessageModal } from '../../GlobalComponents/Modal'
-import { setModalContentOnStore, setModalOnStore } from '../../Store/actions/modalActions'
-import { authSelector } from '../../Store/selectors/authSelectors'
+import { IllustrationImage } from '../../../GlobalComponents/Img'
+import { IllustrationAndTextMessageModal } from '../../../GlobalComponents/Modal'
+import { setModalContentOnStore, setModalOnStore } from '../../../Store/actions/modalActions'
+import { authSelector } from '../../../Store/selectors/authSelectors'
 
 function dispatchLocation() {
     if (process.env === 'production') {
@@ -14,17 +14,21 @@ function dispatchLocation() {
     }
 }
 
-function makeCopy(field, afterCopyFunction) {
-    var copyText = document.querySelector(field)
-    copyText.select();
-    copyText.setSelectionRange(0, 99999);
+function makeCopy(isField = false, copyText = null, afterCopyFunction) {
+    if (isField && copyText === null) {
+        var fieldCopyText = document.querySelector(isField)
+        fieldCopyText.select();
+        fieldCopyText.setSelectionRange(0, 99999);
+        copyText = fieldCopyText.value
+    }
 
-    navigator.clipboard.writeText(copyText.value);
+    navigator.clipboard.writeText(copyText);
     // alert("Lien copié avec succes: " + copyText.value);
     afterCopyFunction()
 }
-function DashHello() {
-    const auth = useSelector(authSelector);
+function DashHello({ props }) {
+    const { auth } = props
+    const { pseudo } = auth.generalInfos
     const [hasCopy, setHasCopy] = useState(false);
 
     const dispatch = useDispatch();
@@ -35,7 +39,7 @@ function DashHello() {
     return (
         <div className="dl-hello">
             <article className="dlh-texts">
-                <h2>Hey Pseudo</h2>
+                <h2>Hey {pseudo}</h2>
                 <p>
                     N'hesite surtout pas a partager le lien de la plateforme avec tes potes etudiants(e),
                     tu contribue ainsi a l'aggrandissement de la communauté Stuud
@@ -48,11 +52,13 @@ function DashHello() {
                 <IllustrationImage props={{ alt: "Nombre de point stuud", src: "invite-share.svg" }} />
             </article>
             <article className='dlh-invitationLink'>
-                <input type={"text"} className='invitationLink'
-                    value={dispatchLocation() + "/Auth/Inscription/invite/1252552"}
-                    onChange={() => null} />
+                <span className='invitationLink'>
+                    {dispatchLocation() + "/Auth/Inscription/invite/1252552"}
+                </span>
 
-                <button onClick={() => makeCopy('.invitationLink', showSuccessCopyModal)}>Copier <i className='mdi mdi-content-copy'></i></button>
+                <button onClick={
+                    () => makeCopy(false, dispatchLocation() + "/Auth/Inscription/invite/1252552", showSuccessCopyModal)
+                }>Copier <i className='mdi mdi-content-copy'></i></button>
             </article>
         </div>
     )

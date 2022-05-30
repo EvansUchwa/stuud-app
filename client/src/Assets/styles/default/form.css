@@ -82,18 +82,26 @@ input[type="number"] {
   gap: 10px;
   width: 100%;
 }
+.fs-radio_checkbox-row label span{
+  background-color: white;
+  color: grey;
+  padding: 10px 15px;
+  border-radius: 20px;
+}
 .fs-radio_checkbox-row label input {
-  position: relative;
+  /* position: relative;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   width: 40px !important;
   height: 40px !important;
   border-radius: 100%;
-  padding: initial !important;
+  padding: initial !important; */
+  display: none;
 }
-.fs-radio_checkbox-row label input:checked {
+.fs-radio_checkbox-row label input:checked + span {
   background-color: var(--color1);
+  color: white;
 }
 .fs-radio_checkbox-row label {
   display: flex;
@@ -201,7 +209,8 @@ input[type="number"] {
 }
 .fsf-filesListAndAddBtn label,.fsf-filesListAndAddBtn > p{
   text-align: center;
-  background-color: var(--cwd2);
+  /* background-color: var(--cwd2); */
+  border: dashed 2px gray;
   border-radius: 10px;
 }
 .fsf-filesListAndAddBtn label span{
@@ -225,6 +234,7 @@ input[type="number"] {
   background-color: var(--color2);
   color: white;
   text-transform: uppercase;
+  border: none;
 }
 .fsf-filesListAndAddBtn p i{
   position: absolute;

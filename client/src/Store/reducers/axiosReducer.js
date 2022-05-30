@@ -9,8 +9,11 @@ const defaultHeaders = {
 
 export const axiosReducer = (state = defaultHeaders, action) => {
     switch (action.type) {
-        case 'SET_AUTH_TOKEN_HEADER':
-            return { ...state, 'Authorization': 'Bearer ' + action.payload.token };
+        case 'SET_AUTH_TOKEN_HEADER': {
+            state.headers = { ...state.headers, 'Authorization': 'Bearer ' + action.payload.token }
+            return state;
+        }
+
 
         case 'REMOVE_AUTH_TOKEN_HEADER':
             return defaultHeaders;

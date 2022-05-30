@@ -86,7 +86,7 @@ export function DashSearchAccountAndNotices({ props }) {
                 </p>
                 <section className="myDropDownItems">
                     <Link to="/Profil">Mon profil</Link>
-                    <span onClick={() => disconnectUser()}>Se deconnecter</span>
+                    <span onClick={() => disconnectUser()}>Deconnexion</span>
                 </section>
             </section>
             <section className="dsad-notices">
