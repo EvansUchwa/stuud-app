@@ -68,7 +68,7 @@ export function DashSearchAccountAndNotices({ props }) {
     function disconnectUser() {
         dispatch(removeAuthHeaderToken())
         dispatch(setIsDisconnected())
-
+        window.location = "/Auth/Connexion"
     }
     return (
         <div className='dash-search_account_notice'>

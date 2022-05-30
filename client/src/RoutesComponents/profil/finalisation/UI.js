@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react"
-import { InputRadio, InputText, SearchAndSelect } from "../../../GlobalComponents/Form"
+import { InputText } from "../../../GlobalComponents/Form/text.js"
+import { InputRadio } from "../../../GlobalComponents/Form/checkbox_radio"
+import { SearchAndSelect } from "../../../GlobalComponents/Form/select.js"
+
 import axios from "axios"
 
 export function FormStep1({ props }) {
     const { formValues, setFormValues } = props
     return <>
         <InputRadio props={{
-            name: "sexe", choices: [
+            name: "sexe", label: "Ton sexe", choices: [
                 { label: "Homme", value: "Homme" }
                 , { label: "Femme", value: "Femme" }
             ],

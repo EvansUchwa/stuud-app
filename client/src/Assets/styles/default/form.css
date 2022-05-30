@@ -30,10 +30,10 @@ input,
 select,
 textarea {
   padding: 20px 10px;
-  border: solid 2px var(--cwd2);
+  border: solid 2px transparent;
 }
 input[type="radio"] {
-  background-color: var(--cwd2);
+  background-color: white;
 }
 input[type="file"] {
   display: none;
@@ -43,7 +43,7 @@ textarea:focus,
 select:focus {
   outline: none !important;
   border-width: 2px !important;
-  border-color: var(--color3) !important;
+  border: solid 2px var(--color3) !important;
   background-color: white;
 }
 textarea {

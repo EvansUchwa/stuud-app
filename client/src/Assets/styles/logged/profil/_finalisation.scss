@@ -71,7 +71,8 @@
     margin: auto;
   }
   .profil-finalisation input:not([type="radio"]) {
-    background-color: var(--cwd2);
+    background-color: white;
+    border-radius: 20px;
   }
   .stepNavigator {
     width: 95%;
