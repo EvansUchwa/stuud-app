@@ -10,11 +10,13 @@ router.get('/mail', (req, res) => {
 
     try{
         mailSender("johnsonevans686@gmail.com", 'Votre inscription', "ok")
+        res.send('ok')
     }catch(error){
         console.log(error)
+        res.send(error)
     }
 
-    res.send('ok')
+    
 })
 
 module.exports = router;

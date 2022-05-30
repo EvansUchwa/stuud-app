@@ -6,7 +6,7 @@ var transporter = nodemailer.createTransport({
     port: "465",
     auth: {
         user: 'lequip@stuud.fr',
-        pass: 'Univearn123@'
+        pass: 'Stuud@2022'
     }
 });
 

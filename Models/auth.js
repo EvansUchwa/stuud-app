@@ -42,7 +42,7 @@ async function register(req, res) {
 
     let mailToken = mail + "-" + uniqId();
     let hashMailToken = await bcrypt.hash(mailToken, 12);
-    hashMailToken = hashMailToken.replaceAll('','');
+    hashMailToken = hashMailToken.replaceAll('/','');
     let user_uniqId = uniqId();
 
     try {
