@@ -3,11 +3,17 @@ import { Outlet, useLocation } from 'react-router';
 import { ConnectedAsideNav } from './Navigation/Navbar';
 import { DashSearchAccountAndNotices, DashTitleAndSortBy } from '../RoutesComponents/dashboard/dashElementUI';
 import { NotConnectedNavbar } from './Navigation/Navbar';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useSelector } from 'react-redux';
+import { toastSelector } from '../Store/selectors/toastSelector';
+
 
 export function NotAuthedAppLayout({ children }) {
 
     const location = useLocation();
-    const [hideNav, setHideNav] = useState(false)
+    const [hideNav, setHideNav] = useState(false);
+    const notify = useSelector(toastSelector)
 
     useEffect(() => {
         if (['/Auth/Inscription', '/Auth/Connexion'].includes(location.pathname)) {
@@ -58,12 +64,13 @@ export function AuthedAppLayout() {
                         }
                         <Outlet />
                     </div>
+
                 </>
                 : <Outlet />
         }
 
 
-
+        <ToastContainer />
     </div>
     )
 }

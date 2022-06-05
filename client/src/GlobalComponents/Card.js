@@ -29,8 +29,21 @@ export const StudentCard = ({ props }) => {
 }
 
 export const CourseCard = ({ props }) => {
-    const { cardType, id, type, title, faculty, number, autor, fileCount } = props
+    const { cardType, coroc, autor } = props
+    const { id, type, title, faculty, number, courseFiles } = coroc;
     const cardColorClass = cardType;
+
+    function manageCouseFileCount() {
+        if (courseFiles) {
+            if (typeof courseFiles === "string") {
+                return JSON.parse(courseFiles).length;
+            } else {
+                return courseFiles.length;
+            }
+        } else {
+            return "0"
+        }
+    }
     return <div className={"courseCard "}>
         <section className="cc-head">
             <div className={cardColorClass}>
@@ -48,7 +61,7 @@ export const CourseCard = ({ props }) => {
                 <span></span>
 
             </div>
-            <p>{fileCount ? fileCount : 0} fichier(s)</p>
+            <p>{manageCouseFileCount()} fichier(s)</p>
         </section>
         <section className="cc-body">
             <b>{title} </b>

@@ -76,16 +76,16 @@ font-size: 12px;
 .courseCard img{
     width: 40px;
 }
-.publishedCourse{
+.fileNbStyle_course{
     background-color: var(--color1);
 }
-.requestedCourse{
+.fileNbStyle_course-request{
     background-color: #020202;
 }
-.publishedCourse span::after{
+.fileNbStyle_course span::after{
     background-color: var(--color1) !important;
 }
-.askedCourse span::after{
+.fileNbStyle_course-request span::after{
     background-color: #020202 !important;
 }
 .cc-head{

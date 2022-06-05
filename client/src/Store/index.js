@@ -4,6 +4,7 @@ import { authReducer } from "./reducers/authReducers";
 import { axiosReducer } from "./reducers/axiosReducer";
 import { modalReducer } from "./reducers/modalReducer";
 import { loadReducer } from "./reducers/loadReducer";
+import { toastReducer } from "./reducers/toastReducer";
 import thunk from "redux-thunk"
 
 
@@ -19,7 +20,8 @@ const composeEnhancers =
 const store = createStore(combineReducers(
     {
         auth: authReducer, axiosDefault: axiosReducer,
-        modal: modalReducer, load: loadReducer
+        modal: modalReducer, load: loadReducer,
+        toaster: toastReducer
     }
 ), composeEnhancers(applyMiddleware(thunk)))
 // store.subscribe(() => console.log(store.getState()))

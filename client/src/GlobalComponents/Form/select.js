@@ -26,7 +26,7 @@ export function SearchAndSelect({ props }) {
     const { name, ph, label,
         fieldValue, setFieldValue,
         formValues, setFormValues,
-        dataList, dataSearchKey } = props
+        dataList, dataSearchKey, size } = props
     const [suggestions, setSuggestions] = useState([]);
     function handleSearch(value) {
         value = value.toLowerCase();
@@ -34,7 +34,7 @@ export function SearchAndSelect({ props }) {
             includes(value))
         setSuggestions(filtered)
     }
-    return <div className="formSegment formSegmentSearch">
+    return <div className={"formSegment formSegmentSearch " + (size ? size : " fsFull")}>
         <label >{label}</label>
         <section>
             <input type="text" name={name}

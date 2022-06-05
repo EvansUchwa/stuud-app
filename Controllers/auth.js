@@ -10,7 +10,7 @@ const { mysql_findOne, mysql_notFound,
 
 
 
-async function authToken(req,res,next){
+async function authMiddleware(req,res,next){
     if(req.headers['authorization']){
         const token = req.headers['authorization'].split(' ')[1];
 
@@ -137,4 +137,4 @@ async function login(req, res) {
 
 }
 
-module.exports = { register, validateMail,login,authToken }
+module.exports = { register, validateMail,login,authMiddleware }

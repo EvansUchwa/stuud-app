@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { mailSender } = require('../../Models/mails/query')
+const { mailSender } = require('../Controllers/mails/query')
 
 // const mysqlConnexion = require('../../Models/databases/index.js')
 

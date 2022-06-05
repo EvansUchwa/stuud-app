@@ -3357,6 +3357,11 @@ cliui@^6.0.0:
     strip-ansi "^6.0.0"
     wrap-ansi "^6.2.0"
 
+clsx@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/clsx/-/clsx-1.1.1.tgz#98b3134f9abbdf23b2663491ace13c5c03a73188"
+  integrity sha512-6/bPho624p3S2pMyvP5kKBPXnI3ufHLObBFCfgx+LkeR5lg2XYy2hqZqUf45ypD8COn2bhgGJSUE+l5dhNBieA==
+
 co@^4.6.0:
   version "4.6.0"
   resolved "https://registry.npmjs.org/co/-/co-4.6.0.tgz"
@@ -9323,6 +9328,13 @@ react-skeleton-loader@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/react-skeleton-loader/-/react-skeleton-loader-1.0.4.tgz#7bdfd35591f97bd10361e3a793360ce98fdf76ab"
   integrity sha512-o52c3hmadpaMbQ4Gl8inCiAxjkfQopDJ6PCHfuuLh6NxRqL5ossJ1/FoeONIvOf/r4GC+VOB5an/jr4Qmj59zg==
+
+react-toastify@^9.0.2:
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/react-toastify/-/react-toastify-9.0.2.tgz#f7934b52ac30eb0c4de452920494b45d65957026"
+  integrity sha512-IknOvdh7LNzeLKmZTn7EXYC4kaSM0VdUvRuNdBJs/F/NMgRW9kFXbzAUb8rpQxIH+p1YJ3KVbfmL5ThCPH6o0A==
+  dependencies:
+    clsx "^1.1.1"
 
 react@^17.0.2:
   version "17.0.2"

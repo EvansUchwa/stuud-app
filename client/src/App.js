@@ -27,15 +27,13 @@ import { Profil } from "./Routes/Profil";
 import { AuthSimpleRoute, AuthProtectedRoute } from "./middleware";
 import { useDispatch, useSelector } from "react-redux";
 
-import { axiosBaseSelector, axiosHeadersSelector } from "./Store/selectors/axiosSelector";
 import { getUserData, setIsAuthed } from "./Store/actions/authActions";
 import { setAuthLoad } from "./Store/actions/loadActions";
 import { authSelector } from "./Store/selectors/authSelectors";
-import Courses from "./Routes/Courses";
+import CoursesOrRequestOfCourse from "./Routes/Coroc";
 import Chat from "./Routes/Chat";
 import Student from "./Routes/Student";
 
-import CoursesRequest from "./Routes/CourseRequest";
 import { Modal } from "./GlobalComponents/Modal";
 import moment from "moment"
 import 'moment/locale/fr'
@@ -93,18 +91,18 @@ function App() {
 
     { path: "/Dashboard", components: <Dashboard />, requireAuth: true, hasNav: true },
     {
-      path: "/Course", components: <Courses />, subRoutes: [
-        { path: "list", components: <Courses props={{ courseAction: "list" }} />, requireAuth: true, hasNav: true },
-        { path: "add", components: <Courses props={{ courseAction: "add" }} />, requireAuth: true, hasNav: true },
+      path: "/Course", components: <CoursesOrRequestOfCourse />, subRoutes: [
+        { path: "list", components: <CoursesOrRequestOfCourse props={{ type: "course", courseAction: "list" }} />, requireAuth: true, hasNav: true },
+        { path: "add", components: <CoursesOrRequestOfCourse props={{ type: "course", courseAction: "add" }} />, requireAuth: true, hasNav: true },
         { path: "*", components: <p>Erreur fdp haha</p>, requireAuth: false, hasNav: true },
 
       ]
       , requireAuth: true, hasNav: true
     },
     {
-      path: "/Course-request", components: <CoursesRequest />, subRoutes: [
-        { path: "list", components: <CoursesRequest props={{ courseAction: "list" }} />, requireAuth: true, hasNav: true },
-        { path: "add", components: <CoursesRequest props={{ courseAction: "add" }} />, requireAuth: true, hasNav: true },
+      path: "/Course-request", components: <CoursesOrRequestOfCourse />, subRoutes: [
+        { path: "list", components: <CoursesOrRequestOfCourse props={{ type: "course-request", courseAction: "list" }} />, requireAuth: true, hasNav: true },
+        { path: "add", components: <CoursesOrRequestOfCourse props={{ type: "course-request", courseAction: "add" }} />, requireAuth: true, hasNav: true },
         { path: "*", components: <p>Erreur fdp haha</p>, requireAuth: false, hasNav: true },
       ]
       , requireAuth: true, hasNav: true

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { register, validateMail,login } = require('../../Models/auth')
+const { register, validateMail,login } = require('../Controllers/auth')
 // const mysqlConnexion = require('../../Models/databases/index.js')
 
 
